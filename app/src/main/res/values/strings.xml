@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Kawanua App</string>
     <string name="regis">Daftar</string>
+    <string name="atau">Atau</string>
     <string name="silahkan_isi_form_terlebih__dahulu">Silakan isi form terlebih dahulu</string>
     <string name="masukan_email">Masukan Email</string>
     <string name="masukan_username">Masukan Username</string>
