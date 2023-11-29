@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary">
+    android:background="@color/background"
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/setting"
@@ -16,8 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/baseline_language_24"
-        app:tint="@color/greenprimary" />
+        app:srcCompat="@drawable/baseline_language_24" />
 
     <ImageView
         android:id="@+id/logoKawanua"
@@ -35,55 +35,46 @@
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:text="Masuk"
+        android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintTop_toBottomOf="@id/logoKawanua"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:alpha="100" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:alpha="0"
-        android:hint="Email"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/masukan_email"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:startIconDrawable="@drawable/baseline_email_24"
-        tools:alpha="100">
+        app:startIconDrawable="@drawable/baseline_email_24" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            app:errorEnabled="true"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordEditTextLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
-        android:hint="Masukkan kata sandi"
+        android:hint="@string/masukan_password"
+        android:background="@color/white"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,42 +84,31 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            app:errorEnabled="true"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/resetPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:alpha="0"
+        android:layout_marginHorizontal="16dp"
         android:text="Lupa password?"
-        android:textColor="@color/greenprimary"
+        android:textColor="@color/primary"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:alpha="0"
-        android:backgroundTint="@color/greenprimary"
-        android:enabled="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="MASUK"
-        android:textStyle="bold"
-        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/noAccount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resetPassword"
-        tools:alpha="100" />
+        app:layout_constraintTop_toBottomOf="@+id/resetPassword" />
 
     <LinearLayout
         android:id="@+id/noAccount"
@@ -142,21 +122,17 @@
             android:id="@+id/noAccountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
             android:layout_marginEnd="5dp"
             android:text="Belum punya akun?"
-            android:textColor="@color/black"
-            tools:alpha="100" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0"
             android:textStyle="bold"
             android:text="@string/regis"
-            android:textColor="@color/greenprimary"
-            tools:alpha="100" />
+            android:textColor="@color/primary" />
     </LinearLayout>
 
     <LinearLayout
@@ -194,29 +170,24 @@
 
     <Button
         android:id="@+id/googleButton"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:alpha="0"
-        android:backgroundTint="@color/greenprimary"
-        android:enabled="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:drawableStart="@drawable/logo_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
         android:text="MASUK DENGAN GOOGLE"
+        app:icon="@drawable/logo_google"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/atau"
-        tools:alpha="100" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/follow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:alpha="0"
         android:textSize="24sp"
         android:backgroundTint="@color/primary"
         android:text="Ikuti Kami"
@@ -224,8 +195,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:alpha="100" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
         android:id="@+id/logoFollow"
