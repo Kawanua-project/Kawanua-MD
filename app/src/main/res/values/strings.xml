@@ -2,4 +2,13 @@
     <string name="app_name">Kawanua App</string>
     <string name="regis">Daftar</string>
     <string name="atau">Atau</string>
+    <string name="silahkan_isi_form_terlebih__dahulu">Silakan isi form terlebih dahulu</string>
+    <string name="masukan_email">Masukan Email</string>
+    <string name="masukan_username">Masukan Username</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="masukan_password">Masukan Password</string>
+    <string name="daftar">DAFTAR</string>
+    <string name="saya_setuju_dengan_syarat_dan_ketentuan">SAYA SETUJU DENGAN SYARAT DAN KETENTUAN</string>
+    <string name="daftar_dengan_google">DAFTAR DENGAN GOOGLE</string>
+    <string name="sudah_punya_akun_masuk">SUDAH PUNYA AKUN? MASUK</string>
 </resources>
