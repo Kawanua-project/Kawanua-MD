@@ -11,4 +11,17 @@
     <string name="saya_setuju_dengan_syarat_dan_ketentuan">SAYA SETUJU DENGAN SYARAT DAN KETENTUAN</string>
     <string name="daftar_dengan_google">DAFTAR DENGAN GOOGLE</string>
     <string name="sudah_punya_akun_masuk">SUDAH PUNYA AKUN? MASUK</string>
+    <string name="kawanua">KAWANUA</string>
+    <string name="gallery">Galeri</string>
+    <string name="scan_screen">Scan Screen\n</string>
+    <string name="kamera">Kamera</string>
+    <string name="unggah">Unggah</string>
+    <string name="beranda">Beranda</string>
+    <string name="profil">Profil</string>
+    <string name="pindai">Pindai</string>
+    <string name="kontak">Kontak</string>
+    <string name="title_activity_bottom_navigation">bottom_navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
