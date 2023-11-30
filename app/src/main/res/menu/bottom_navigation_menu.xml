@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/beranda"/>
+
+    <item
+        android:id="@+id/navigation_scan"
+        android:icon="@drawable/scan"
+        android:title="@string/pindai"/>
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="@string/profil"/>
+
+    <item
+        android:id="@+id/navigation_contact"
+        android:icon="@drawable/baseline_contact_phone_24"
+        android:title="@string/kontak"/>
+
+</menu>
