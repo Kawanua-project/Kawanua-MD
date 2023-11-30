@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <SearchView
+    <com.google.android.material.search.SearchBar
         android:id="@+id/sv_ksdae"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
