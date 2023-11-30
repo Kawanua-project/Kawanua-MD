@@ -128,32 +128,20 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/textFieldKonfirmasiPassword"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textFieldKonfirmasiPassword"
-            app:layout_constraintTop_toBottomOf="@+id/textFieldKonfirmasiPassword"
-            android:checked="true"
-            android:text="@string/saya_setuju_dengan_syarat_dan_ketentuan"
-            android:textSize="12sp"
-            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button_daftar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/daftar"
             app:layout_constraintBottom_toBottomOf="@+id/tv_sudah_punya_akun"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkbox"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/textFieldKonfirmasiPassword"
+            app:layout_goneMarginTop="16dp" />
         <TextView
             android:id="@+id/tv_sudah_punya_akun"
             android:layout_width="match_parent"
