@@ -13,6 +13,9 @@
         android:theme="@style/Theme.KawanuaApp"
         tools:targetApi="31">
         <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
+        <activity
             android:name=".bottom_navigation"
             android:exported="false"
             android:label="@string/title_activity_bottom_navigation" />
