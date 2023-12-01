@@ -24,4 +24,18 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="scan">Scan</string>
+    <string name="berita">Berita</string>
+    <string name="banner">Banner</string>
+    <string name="ikuti">IKUTI KAMI</string>
+    <string name="bahasa">Tombol bahasa</string>
+    <string name="masuktitle">Selamat datang kembali! Isi untuk masuk!</string>
+    <string name="masukgoogle">MASUK DENGAN GOOGLE</string>
+    <string name="masuk">MASUK</string>
+    <string name="ig">Instagram</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="lupa">Lupa password?</string>
+    <string name="noakun">Belum punya akun?</string>
+    <string name="hasil">Hasil scan</string>
+    <string name="ksdae">KSDAE</string>
 </resources>
