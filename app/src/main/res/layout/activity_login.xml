@@ -15,6 +15,7 @@
             android:id="@+id/setting"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:contentDescription="@string/bahasa"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.955"
@@ -29,6 +30,7 @@
             android:layout_height="126dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
+            android:contentDescription="@string/kawanua"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -41,10 +43,10 @@
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Masuk"
+            android:text="@string/masuktitle"
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -62,8 +64,7 @@
             android:hint="@string/masukan_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-            app:startIconDrawable="@drawable/baseline_email_24">
+            app:layout_constraintTop_toBottomOf="@+id/titleTextView">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
@@ -82,8 +83,7 @@
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout"
-            app:startIconDrawable="@drawable/baseline_lock_24">
+            app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditText"
@@ -96,8 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:text="Lupa password?"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/lupa"
             android:textColor="@color/primary"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
@@ -108,7 +110,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="MASUK"
+            android:text="@string/masuk"
             app:layout_constraintBottom_toTopOf="@+id/noAccount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,16 +129,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
-                android:text="Belum punya akun?"
-                android:textColor="@color/black" />
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/noakun"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
                 android:text="@string/regis"
                 android:textColor="@color/primary"
-                android:textStyle="bold" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -160,10 +165,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:alpha="0"
+                android:fontFamily="@font/poppins_medium"
                 android:text="@string/atau"
                 android:textColor="@color/black"
-                tools:alpha="100" />
+                android:textSize="14sp" />
 
             <View
                 android:layout_width="160dp"
@@ -179,7 +184,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="MASUK DENGAN GOOGLE"
+            android:text="@string/masukgoogle"
             app:icon="@drawable/logo_google"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -191,11 +196,12 @@
             android:id="@+id/follow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="45dp"
             android:backgroundTint="@color/primary"
-            android:text="Ikuti Kami"
+            android:fontFamily="@font/poppins_bold"
+            android:text="@string/ikuti"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -205,6 +211,7 @@
             android:id="@+id/logoFollow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -215,6 +222,7 @@
                 android:layout_width="60dp"
                 android:layout_height="72dp"
                 android:layout_marginEnd="5dp"
+                android:contentDescription="@string/linkedin"
                 app:srcCompat="@drawable/logo_linkedin" />
 
             <ImageView
@@ -222,6 +230,7 @@
                 android:layout_width="60dp"
                 android:layout_height="72dp"
                 android:layout_marginStart="5dp"
+                android:contentDescription="@string/ig"
                 app:srcCompat="@drawable/logo_ig" />
         </LinearLayout>
 
