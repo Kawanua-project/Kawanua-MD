@@ -24,6 +24,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="mode_gelap">Mode Gelap</string>
+    <string name="keluar">Keluar</string>
+    <string name="bahasa">Bahasa</string>
+    <string name="jonathan_alezandro">Jonathan Alezandro</string>
     <string name="scan">Scan</string>
     <string name="berita">Berita</string>
     <string name="banner">Banner</string>
