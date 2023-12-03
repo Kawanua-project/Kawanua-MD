@@ -8,7 +8,6 @@
     <string name="konfirmasi_password">Konfirmasi Password</string>
     <string name="masukan_password">Masukan Password</string>
     <string name="daftar">DAFTAR</string>
-    <string name="saya_setuju_dengan_syarat_dan_ketentuan">SAYA SETUJU DENGAN SYARAT DAN KETENTUAN</string>
     <string name="daftar_dengan_google">DAFTAR DENGAN GOOGLE</string>
     <string name="sudah_punya_akun_masuk">SUDAH PUNYA AKUN? MASUK</string>
     <string name="kawanua">KAWANUA</string>
@@ -27,12 +26,11 @@
     <string name="mode_gelap">Mode Gelap</string>
     <string name="keluar">Keluar</string>
     <string name="bahasa">Bahasa</string>
-    <string name="jonathan_alezandro">Jonathan Alezandro</string>
     <string name="scan">Scan</string>
     <string name="berita">Berita</string>
     <string name="banner">Banner</string>
     <string name="ikuti">IKUTI KAMI</string>
-    <string name="bahasa">Tombol bahasa</string>
+    <string name="tombol_bahasa">Tombol bahasa</string>
     <string name="masuktitle">Selamat datang kembali! Isi untuk masuk!</string>
     <string name="masukgoogle">MASUK DENGAN GOOGLE</string>
     <string name="masuk">MASUK</string>
@@ -42,4 +40,5 @@
     <string name="noakun">Belum punya akun?</string>
     <string name="hasil">Hasil scan</string>
     <string name="ksdae">KSDAE</string>
+    <string name="kebun">Kebun Binatang Terdekat</string>
 </resources>

@@ -16,10 +16,6 @@
             android:name=".ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".bottom_navigation"
-            android:exported="false"
-            android:label="@string/title_activity_bottom_navigation" />
-        <activity
             android:name=".ScanActivity"
             android:exported="false" />
         <activity
