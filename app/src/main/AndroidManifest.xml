@@ -13,12 +13,22 @@
         android:theme="@style/Theme.KawanuaApp"
         tools:targetApi="31">
         <activity
-            android:name=".ProfilActivity"
+            android:name=".DetailSpesiesActivity"
             android:exported="false" />
         <activity
-            android:name=".bottom_navigation"
+            android:name=".ListKonservasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListBeritaActivity"
             android:exported="false"
-            android:label="@string/title_activity_bottom_navigation" />
+            android:label="@string/title_activity_list_berita"
+            android:theme="@style/Theme.KawanuaApp" />
+        <activity
+            android:name=".DetailBeritaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilActivity"
+            android:exported="false" />
         <activity
             android:name=".ScanActivity"
             android:exported="false" />

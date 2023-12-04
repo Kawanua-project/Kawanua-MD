@@ -1,178 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".RegisterActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ImageView
+        android:id="@+id/logoKawanua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/kawanua"
+        android:src="@drawable/logo_kawanua"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/language_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/bahasa"
+        android:src="@drawable/baseline_language_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_silahkan_isi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/silahkan_isi_form_terlebih__dahulu"
+        android:textAlignment="textStart"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoKawanua" />
 
-        <ImageView
-            android:id="@+id/logoKawanua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo_kawanua"
-            android:contentDescription="@string/kawanua"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:hint="@string/masukan_username"
+        app:layout_constraintEnd_toEndOf="@+id/tv_silahkan_isi"
+        app:layout_constraintStart_toStartOf="@+id/tv_silahkan_isi"
+        app:layout_constraintTop_toBottomOf="@id/tv_silahkan_isi">
 
-        <ImageView
-            android:id="@+id/language_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/baseline_language_24"
-            android:contentDescription="@string/bahasa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/tv_silahkan_isi"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:hint="@string/masukan_email"
+        app:layout_constraintEnd_toEndOf="@+id/textFieldUsername"
+        app:layout_constraintStart_toStartOf="@+id/textFieldUsername"
+        app:layout_constraintTop_toBottomOf="@id/textFieldUsername">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="36dp"
-            android:text="@string/silahkan_isi_form_terlebih__dahulu"
-            android:textAlignment="textStart"
-            android:textSize="20sp"
-            android:fontFamily="@font/poppins_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoKawanua" />
+            android:inputType="textEmailAddress" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldUsername"
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:hint="@string/masukan_password"
+        app:layout_constraintEnd_toEndOf="@+id/textFieldEmail"
+        app:layout_constraintStart_toStartOf="@+id/textFieldEmail"
+        app:layout_constraintTop_toBottomOf="@id/textFieldEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/masukan_username"
-            app:layout_constraintStart_toStartOf="@+id/tv_silahkan_isi"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/tv_silahkan_isi"
-            app:layout_constraintTop_toBottomOf="@id/tv_silahkan_isi"
-            android:layout_marginTop="16dp"
-            android:background="@color/white">
+            android:inputType="textPassword" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textFieldKonfirmasiPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:hint="@string/konfirmasi_password"
+        app:layout_constraintEnd_toEndOf="@+id/textFieldPassword"
+        app:layout_constraintStart_toStartOf="@+id/textFieldPassword"
+        app:layout_constraintTop_toBottomOf="@id/textFieldPassword">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldEmail"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/masukan_email"
-            app:layout_constraintStart_toStartOf="@+id/textFieldUsername"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/textFieldUsername"
-            app:layout_constraintTop_toBottomOf="@id/textFieldUsername"
-            android:layout_marginTop="16dp"
-            android:background="@color/white">
+            android:inputType="textPassword" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/masukan_password"
-            app:layout_constraintStart_toStartOf="@+id/textFieldEmail"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/textFieldEmail"
-            app:layout_constraintTop_toBottomOf="@id/textFieldEmail"
-            android:layout_marginTop="16dp"
-            android:background="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldKonfirmasiPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/konfirmasi_password"
-            app:layout_constraintStart_toStartOf="@+id/textFieldPassword"
-            android:layout_marginHorizontal="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/textFieldPassword"
-            app:layout_constraintTop_toBottomOf="@id/textFieldPassword"
-            android:layout_marginTop="16dp"
-            android:background="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-            
-        <Button
-            android:id="@+id/button_daftar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/daftar"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_sudah_punya_akun"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textFieldKonfirmasiPassword"
-            app:layout_goneMarginTop="16dp" />
-        <TextView
-            android:id="@+id/tv_sudah_punya_akun"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sudah_punya_akun_masuk"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            android:textSize="13sp"
-            android:layout_marginHorizontal="16dp"
-            android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_daftar"/>
-
-        <Button
-            android:id="@+id/button_daftar_google"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/daftar_dengan_google"
-            app:icon="@drawable/logo_google"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sudah_punya_akun"
-            app:layout_constraintVertical_bias="0.0" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/button_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/daftar"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_sudah_punya_akun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFieldKonfirmasiPassword"
+        app:layout_goneMarginTop="16dp" />
 
-</ScrollView>
+    <TextView
+        android:id="@+id/tv_sudah_punya_akun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/sudah_punya_akun_masuk"
+        android:textAlignment="center"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_daftar" />
+
+    <Button
+        android:id="@+id/button_daftar_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/daftar_dengan_google"
+        app:icon="@drawable/logo_google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sudah_punya_akun"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

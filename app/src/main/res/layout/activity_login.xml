@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,233 +7,181 @@
     android:background="@color/background"
     tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/bahasa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_language_24" />
+
+    <ImageView
+        android:id="@+id/logoKawanua"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginVertical="24dp"
+        android:contentDescription="@string/kawanua"
+        app:layout_constraintBottom_toTopOf="@+id/titleTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kawanua_logo" />
+
+    <TextView
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/masuktitle"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/logoKawanua"
+        app:layout_constraintStart_toStartOf="@+id/logoKawanua"
+        app:layout_constraintTop_toBottomOf="@id/logoKawanua" />
 
-        <ImageView
-            android:id="@+id/setting"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/bahasa"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.955"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023"
-            app:srcCompat="@drawable/baseline_language_24" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailEditTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        android:background="@color/white"
+        android:hint="@string/masukan_email"
+        app:startIconDrawable="@drawable/baseline_email_24"
+        app:layout_constraintEnd_toEndOf="@+id/titleTextView"
+        app:layout_constraintStart_toStartOf="@+id/titleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView">
 
-        <ImageView
-            android:id="@+id/logoKawanua"
-            android:layout_width="110dp"
-            android:layout_height="126dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:contentDescription="@string/kawanua"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.081"
-            app:srcCompat="@drawable/logo_kawanua" />
-
-        <TextView
-            android:id="@+id/titleTextView"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/masuktitle"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logoKawanua" />
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailEditTextLayout"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordEditTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        android:hint="@string/masukan_password"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="@+id/emailEditTextLayout"
+        app:layout_constraintStart_toStartOf="@+id/emailEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            android:hint="@string/masukan_email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTextView">
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/button_masuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="32dp"
+        android:fontFamily="@font/poppins_extra_bold"
+        android:text="@string/masuk"
+        app:layout_constraintEnd_toEndOf="@+id/passwordEditTextLayout"
+        app:layout_constraintStart_toStartOf="@+id/passwordEditTextLayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordEditTextLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            android:hint="@string/masukan_password"
-            app:endIconMode="password_toggle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailEditTextLayout">
+    <TextView
+        android:id="@+id/tv_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="BELUM PUNYA AKUN? DAFTAR"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/button_masuk"
+        app:layout_constraintStart_toStartOf="@+id/button_masuk"
+        app:layout_constraintTop_toBottomOf="@+id/button_masuk" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/button_daftar_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
+        android:text="@string/masukgoogle"
+        app:icon="@drawable/logo_google"
+        app:layout_constraintEnd_toEndOf="@+id/tv_daftar"
+        app:layout_constraintStart_toStartOf="@+id/tv_daftar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_daftar"
+        android:fontFamily="@font/poppins_extra_bold" />
 
-        <TextView
-            android:id="@+id/resetPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/lupa"
-            android:textColor="@color/primary"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordEditTextLayout" />
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/masuk"
-            app:layout_constraintBottom_toTopOf="@+id/noAccount"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resetPassword" />
+    <TextView
+        android:id="@+id/ikuti_kami"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/ikuti"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/button_daftar_google"
+        app:layout_constraintStart_toStartOf="@+id/button_daftar_google"
+        app:layout_constraintTop_toBottomOf="@+id/button_daftar_google" />
 
-        <LinearLayout
-            android:id="@+id/noAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginButton">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ikuti_kami"
+        app:layout_constraintStart_toStartOf="@+id/ikuti_kami"
+        app:layout_constraintTop_toBottomOf="@+id/ikuti_kami"
+        app:layout_constraintVertical_bias="0.0">
 
-            <TextView
-                android:id="@+id/noAccountText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/noakun"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/linkedin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="16dp"
+            app:lottie_fileName="linkedin.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
-            <TextView
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/regis"
-                android:textColor="@color/primary"
-                android:textSize="12sp" />
-        </LinearLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/instagram"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:lottie_fileName="instagram.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
 
-        <LinearLayout
-            android:id="@+id/atau"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/noAccount">
 
-            <View
-                android:layout_width="160dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/black" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/atauTeks"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/atau"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+    <!--  <com.airbnb.lottie.LottieAnimationView
+         android:id="@+id/lottieAnimationView"
+         android:layout_width="50dp"
+         android:layout_height="50dp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/ikuti_kami"
+         android:layout_marginTop="24dp"
+         app:lottie_autoPlay="true"
+         app:lottie_fileName="profileanimation.json"
+         app:lottie_loop="true" /> -->
 
-            <View
-                android:layout_width="160dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/black" />
-        </LinearLayout>
 
-        <Button
-            android:id="@+id/googleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/masukgoogle"
-            app:icon="@drawable/logo_google"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/atau"
-            app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/follow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="45dp"
-            android:backgroundTint="@color/primary"
-            android:fontFamily="@font/poppins_bold"
-            android:text="@string/ikuti"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/googleButton" />
-
-        <LinearLayout
-            android:id="@+id/logoFollow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/follow">
-
-            <ImageView
-                android:id="@+id/logoFollow2"
-                android:layout_width="60dp"
-                android:layout_height="72dp"
-                android:layout_marginEnd="5dp"
-                android:contentDescription="@string/linkedin"
-                app:srcCompat="@drawable/logo_linkedin" />
-
-            <ImageView
-                android:id="@+id/logoFollow1"
-                android:layout_width="60dp"
-                android:layout_height="72dp"
-                android:layout_marginStart="5dp"
-                android:contentDescription="@string/ig"
-                app:srcCompat="@drawable/logo_ig" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>

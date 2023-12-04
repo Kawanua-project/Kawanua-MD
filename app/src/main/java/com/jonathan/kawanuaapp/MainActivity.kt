@@ -11,21 +11,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.loginButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-        }
-
-        binding.scanButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity, ScanActivity::class.java))
-        }
-
-        binding.registerButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity, RegisterActivity::class.java))
-        }
-
-        binding.profilButton.setOnClickListener {
-            startActivity(Intent(this@MainActivity, ProfilActivity::class.java))
-        }
     }
 }
