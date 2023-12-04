@@ -2,13 +2,13 @@ package com.jonathan.kawanuaapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jonathan.kawanuaapp.databinding.ActivityProfilBinding
+import com.jonathan.kawanuaapp.databinding.ActivityProfileBinding
 
-class ProfilActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityProfilBinding
+class ProfileActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfilBinding.inflate(layoutInflater)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.lottieAnimationView.playAnimation()

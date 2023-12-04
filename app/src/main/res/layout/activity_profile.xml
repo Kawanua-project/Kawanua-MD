@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilActivity">
+    tools:context=".ProfileActivity">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,12 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:title="Profile Screen"
-            app:titleTextColor="@color/primary" />
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:src="@drawable/kawanua_text"
+            android:layout_gravity="center"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
