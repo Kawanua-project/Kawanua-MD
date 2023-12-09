@@ -96,6 +96,12 @@
         <item>Balai Besar KSDA Papua</item>
         <item>Balai Besar KSDA Papua Barat</item>
         <item>Balai Besar TN Gunung Leuser</item>
+        <item>Balai Besar TN Kerinci Seblat</item>
+        <item>Balai Besar TN Bukit Barisan Selatan</item>
+        <item>Balai Besar TN Gunung Gede Pangrango</item>
+        <item>Balai Besar TN Bromo Tengger Semeru</item>
+        <item>Balai Besar TN Betung Kerihun</item>
+        <item>Balai Besar TN Lore Lindu</item>
     </string-array>
 
     <string-array name="data_alamat">
@@ -108,6 +114,12 @@
         <item>Jl. Raya Abepura - Kotaraja, Papua Tlp. (0967) 5815596 Fax. (0967) 585529</item>
         <item>Jl. Klamono km.16 Kota Sorong Papua Barat</item>
         <item>Jl. Selamat No. 137 Kel. Siti Rejo III Medan Amplas, Medan 20219 Tlp.(061) 7872919 Fax.(061) 7864510</item>
+        <item>Jl. Basuki Rachmat No.11 PO.Box.40 Sungai Penuh, Jambi - 37101 Tlp.(0748) 22240 Fax.(0748) 22300, 22250</item>
+        <item>Jl. Ir. H. Juanda No.19, Kota Batu, Kota Agung, Kabupaten Tanggamus</item>
+        <item>Jl. Raya Cibodas, Cipanas Po.Box.3 Cipanas, Cianjur - 43253 Tlp/Fax.(0263) 512776, 519415</item>
+        <item>Jl. Raden Intan No.6, Polowijen, Kec. Blimbing, Kota Malang, Jawa Timur 65125</item>
+        <item>Jl. Banin No.6, Kedamin Hilir, Putussibau Sel., Kabupaten Kapuas Hulu</item>
+        <item>Jl. Pro. Moh. Yamin No.53, Tatura Utara, Palu Sel., Kota Palu, Sulawesi Tengah</item>
     </string-array>
 
     <string-array name="data_nomor">
@@ -120,6 +132,12 @@
         <item>082398029978</item>
         <item>081148500040</item>
         <item>081260608886</item>
+        <item>082287971791</item>
+        <item>085266009917</item>
+        <item>087780937837</item>
+        <item>085259934112</item>
+        <item>082158794140</item>
+        <item>08114555989</item>
     </string-array>
 
 </resources>
