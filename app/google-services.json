@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "352341620515",
+    "project_id": "kawanua-app-21e09",
+    "storage_bucket": "kawanua-app-21e09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352341620515:android:08ad7d575b4bb17841be96",
+        "android_client_info": {
+          "package_name": "com.jonathan.kawanuaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcPPFIFyRgugK2MXdKJBazTzU4_gcXuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
