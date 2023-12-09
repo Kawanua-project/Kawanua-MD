@@ -64,6 +64,8 @@ dependencies {
 
     // Navigation
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+
 
     // Circle Image
     implementation("de.hdodenhof:circleimageview:3.1.0")
