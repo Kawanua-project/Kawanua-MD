@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "352341620515",
+    "project_id": "kawanua-app-21e09",
+    "storage_bucket": "kawanua-app-21e09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352341620515:android:08ad7d575b4bb17841be96",
+        "android_client_info": {
+          "package_name": "com.jonathan.kawanuaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352341620515-i5a75paa48ui1tj2920g7c041ivpbhev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jonathan.kawanuaapp",
+            "certificate_hash": "f598f7b31b3ab127222d5784b23089ed73c1db30"
+          }
+        },
+        {
+          "client_id": "352341620515-mu4lec4tg48ps4bgdckjtlg2hggh0ed4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jonathan.kawanuaapp",
+            "certificate_hash": "2361a63168764b5e7979e092b45ec2bb7d401e6e"
+          }
+        },
+        {
+          "client_id": "352341620515-t5hsbh7rveq2a0k63r2kirmuoj6thh99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcPPFIFyRgugK2MXdKJBazTzU4_gcXuEU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352341620515-t5hsbh7rveq2a0k63r2kirmuoj6thh99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
