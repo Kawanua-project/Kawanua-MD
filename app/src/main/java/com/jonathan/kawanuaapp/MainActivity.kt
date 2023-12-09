@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
 
-        bottomNavigationView.selectedItemId = R.id.navigation_profile
+        bottomNavigationView.selectedItemId = R.id.navigation_home
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             when(item.itemId) {
