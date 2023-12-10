@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.ActivityOptionsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jonathan.kawanuaapp.databinding.ActivityListKonservasiBinding
 
@@ -18,14 +17,13 @@ class ListKonservasiActivity : AppCompatActivity() {
         binding = ActivityListKonservasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = ListKonservasiAdapter(list)
-        binding.rvKsdae.adapter = adapter
-        binding.rvKsdae.layoutManager = LinearLayoutManager(this)
-
         with(binding) {
             searchView.setupWithSearchBar(searchBar)
 
         }
+
+        list.addAll(getListKonservasi())
+        showRecyclerList()
 
         val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
         bottomNavigationView.selectedItemId = R.id.navigation_contact
@@ -66,9 +64,6 @@ class ListKonservasiActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this)
         startActivity(intent, options.toBundle())
-        
-        list.addAll(getListKonservasi())
-        showRecyclerList()
     }
 
     private fun getListKonservasi(): ArrayList<Konservasi> {
