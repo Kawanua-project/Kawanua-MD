@@ -85,4 +85,59 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="lihat_semua">LIHAT SEMUA</string>
+
+    <string-array name="data_nama">
+        <item>Balai Besar KSDA Sumatera Utara</item>
+        <item>Balai Besar KSDA Riau</item>
+        <item>Balai Besar KSDA Jawa Barat</item>
+        <item>Balai Besar KSDA Jawa Timur</item>
+        <item>Balai Besar KSDA NTT</item>
+        <item>Balai Besar KSDA Sulawesi Selatan</item>
+        <item>Balai Besar KSDA Papua</item>
+        <item>Balai Besar KSDA Papua Barat</item>
+        <item>Balai Besar TN Gunung Leuser</item>
+        <item>Balai Besar TN Kerinci Seblat</item>
+        <item>Balai Besar TN Bukit Barisan Selatan</item>
+        <item>Balai Besar TN Gunung Gede Pangrango</item>
+        <item>Balai Besar TN Bromo Tengger Semeru</item>
+        <item>Balai Besar TN Betung Kerihun</item>
+        <item>Balai Besar TN Lore Lindu</item>
+    </string-array>
+
+    <string-array name="data_alamat">
+        <item>Jl. S.M. Raja No. 14 Km. 5,5 Marindal, Medan</item>
+        <item>Jl. H.R. Soebrantas Km.8,5 Po.Box.1048 Tampan - Pekanbaru</item>
+        <item>Jl. Gede Bage Selatan No.117 Cisaranten Kidul, Rancasari Bandung Tlp/Fax. (022) 7567715</item>
+        <item>Jl. Bandara Juanda Surabaya - 61253 Tlp. (031) 8667239 Fax. (031) 8671985</item>
+        <item>Jl. SK. Lerik, Kelapa Lima, Kota Kupang, NTT</item>
+        <item>Jl. Perintis Kemerdekaan Km.13,7 Makassar - 90242 Tlp. (0411) 590371 Fax. (0411) 590370</item>
+        <item>Jl. Raya Abepura - Kotaraja, Papua Tlp. (0967) 5815596 Fax. (0967) 585529</item>
+        <item>Jl. Klamono km.16 Kota Sorong Papua Barat</item>
+        <item>Jl. Selamat No. 137 Kel. Siti Rejo III Medan Amplas, Medan 20219 Tlp.(061) 7872919 Fax.(061) 7864510</item>
+        <item>Jl. Basuki Rachmat No.11 PO.Box.40 Sungai Penuh, Jambi - 37101 Tlp.(0748) 22240 Fax.(0748) 22300, 22250</item>
+        <item>Jl. Ir. H. Juanda No.19, Kota Batu, Kota Agung, Kabupaten Tanggamus</item>
+        <item>Jl. Raya Cibodas, Cipanas Po.Box.3 Cipanas, Cianjur - 43253 Tlp/Fax.(0263) 512776, 519415</item>
+        <item>Jl. Raden Intan No.6, Polowijen, Kec. Blimbing, Kota Malang, Jawa Timur 65125</item>
+        <item>Jl. Banin No.6, Kedamin Hilir, Putussibau Sel., Kabupaten Kapuas Hulu</item>
+        <item>Jl. Pro. Moh. Yamin No.53, Tatura Utara, Palu Sel., Kota Palu, Sulawesi Tengah</item>
+    </string-array>
+
+    <string-array name="data_nomor">
+        <item>085376699066</item>
+        <item>081374742981</item>
+        <item>081228673757</item>
+        <item>082232115200</item>
+        <item>081138104999</item>
+        <item>08114600883</item>
+        <item>082398029978</item>
+        <item>081148500040</item>
+        <item>081260608886</item>
+        <item>082287971791</item>
+        <item>085266009917</item>
+        <item>087780937837</item>
+        <item>085259934112</item>
+        <item>082158794140</item>
+        <item>08114555989</item>
+    </string-array>
+
 </resources>
