@@ -1,17 +1,18 @@
-package com.jonathan.kawanuaapp.ui.scan
+package com.jonathan.kawanuaapp.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.jonathan.kawanuaapp.databinding.FragmentProfileBinding
 import com.jonathan.kawanuaapp.databinding.FragmentScanBinding
+import com.jonathan.kawanuaapp.ui.contact.ContactViewModel
 
-class ScanFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentScanBinding? = null
+    private var _binding: FragmentProfileBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,10 +23,10 @@ class ScanFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val ScanViewModel =
-            ViewModelProvider(this).get(ScanViewModel::class.java)
+        val contactViewViewModel =
+            ViewModelProvider(this).get(ContactViewModel::class.java)
 
-        _binding = FragmentScanBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

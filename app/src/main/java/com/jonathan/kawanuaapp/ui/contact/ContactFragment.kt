@@ -23,7 +23,7 @@ class ContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
+        val contactViewViewModel =
             ViewModelProvider(this).get(ContactViewModel::class.java)
 
         _binding = FragmentScanBinding.inflate(inflater, container, false)

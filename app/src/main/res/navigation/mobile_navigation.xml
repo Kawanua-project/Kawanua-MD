@@ -8,18 +8,26 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.jonathan.kawanuaapp.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="@string/beranda"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_scan"
+        android:label="@string/scan"
         android:name="com.jonathan.kawanuaapp.ui.scan.ScanFragment"
-        android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_scan" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_contact"
+        android:label="@string/kontak"
         android:name="com.jonathan.kawanuaapp.ui.contact.ContactFragment"
-        android:label="@string/title_notifications"
         tools:layout="@layout/fragment_contact" />
+
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:label="@string/kontak"
+        android:name="com.jonathan.kawanuaapp.ui.contact.ContactFragment"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
