@@ -12,7 +12,7 @@ import com.jonathan.kawanuaapp.databinding.FragmentScanBinding
 
 class ContactFragment : Fragment() {
 
-    private var _binding: FragmentScanBinding? = null
+    private var _binding: FragmentContactBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +26,7 @@ class ContactFragment : Fragment() {
         val contactViewViewModel =
             ViewModelProvider(this).get(ContactViewModel::class.java)
 
-        _binding = FragmentScanBinding.inflate(inflater, container, false)
+        _binding = FragmentContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 

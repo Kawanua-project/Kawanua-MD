@@ -13,21 +13,22 @@
 
     <fragment
         android:id="@+id/navigation_scan"
-        android:label="@string/scan"
         android:name="com.jonathan.kawanuaapp.ui.scan.ScanFragment"
+        android:label="@string/pindai"
         tools:layout="@layout/fragment_scan" />
 
     <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.jonathan.kawanuaapp.ui.profile.ProfileFragment"
+        android:label="@string/profil"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
         android:id="@+id/navigation_contact"
-        android:label="@string/kontak"
         android:name="com.jonathan.kawanuaapp.ui.contact.ContactFragment"
+        android:label="@string/kontak"
         tools:layout="@layout/fragment_contact" />
 
 
-    <fragment
-        android:id="@+id/navigation_profile"
-        android:label="@string/kontak"
-        android:name="com.jonathan.kawanuaapp.ui.contact.ContactFragment"
-        tools:layout="@layout/fragment_profile" />
 
 </navigation>
