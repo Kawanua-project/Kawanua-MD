@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.home.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="profileanimation.json"
+        app:lottie_loop="true" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
+        app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_extra_bold"
+        tools:text="Jonathan Alezandro"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"/>
 
-</FrameLayout>
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/switchTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_username"
+        app:layout_constraintEnd_toEndOf="@+id/tv_username"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"
+        android:layout_marginTop="24dp"
+        android:enabled="true"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/mode_gelap"/>
+
+    <Button
+        android:id="@+id/button_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bahasa"
+        app:icon="@drawable/baseline_language_24"
+        app:layout_constraintStart_toStartOf="@+id/switchTheme"
+        app:layout_constraintEnd_toEndOf="@+id/switchTheme"
+        app:layout_constraintTop_toBottomOf="@id/switchTheme"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/keluar"
+        app:icon="@drawable/baseline_logout_24"
+        app:layout_constraintStart_toStartOf="@+id/button_language"
+        app:layout_constraintEnd_toEndOf="@+id/button_language"
+        app:layout_constraintTop_toBottomOf="@id/button_language"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
