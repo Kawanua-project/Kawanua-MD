@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.ui
+package com.jonathan.kawanuaapp.ui.detailspesies
 
 import androidx.lifecycle.ViewModel
 
