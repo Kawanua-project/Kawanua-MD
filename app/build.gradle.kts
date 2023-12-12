@@ -10,6 +10,7 @@ android {
 
     defaultConfig {
         buildConfigField("String", "API_URL", "\"https://reqres.in/api/\"")
+        buildConfigField("String", "API_URL_NEWS", "\"https://newsapi.org/v2/\"")
 
         applicationId = "com.jonathan.kawanuaapp"
         minSdk = 24
