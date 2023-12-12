@@ -9,6 +9,8 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        buildConfigField("String", "API_URL", "\"https://reqres.in/api/\"")
+
         applicationId = "com.jonathan.kawanuaapp"
         minSdk = 24
         targetSdk = 34
@@ -40,6 +42,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -66,6 +69,13 @@ dependencies {
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
 
+    // Datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     // Circle Image
     implementation("de.hdodenhof:circleimageview:3.1.0")
