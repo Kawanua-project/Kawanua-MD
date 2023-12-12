@@ -17,14 +17,14 @@ class HomeViewModel(private val repository: NewsRepository) : ViewModel() {
     }
     val text: LiveData<String> = _text
 
-    private val _stories = MutableLiveData<List<ArticlesItem>>()
-    val stories: LiveData<List<ArticlesItem>> get() = _stories
+    private val _news = MutableLiveData<List<ArticlesItem>>()
+    val news: LiveData<List<ArticlesItem>> get() = _news
 
     fun getNews() {
         GlobalScope.launch(Dispatchers.IO) {
             val result = repository.getNews()
             withContext(Dispatchers.Main) {
-                _stories.value = result
+                _news.value = result
             }
         }
     }

@@ -75,6 +75,9 @@ dependencies {
     // Datastore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

@@ -11,11 +11,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.NewsAdapter
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.model.Zoo
 
@@ -23,6 +27,9 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private  lateinit var mMapView: MapView
+    private lateinit var news: List<ArticlesItem>
+    private lateinit var adapter: NewsAdapter
+    private lateinit var recyclerView: RecyclerView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -38,6 +45,13 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        homeViewModel.news.observe(viewLifecycleOwner) { news ->
+            this.news = news
+            adapter = NewsAdapter(news)
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        }
 
         return root
     }
