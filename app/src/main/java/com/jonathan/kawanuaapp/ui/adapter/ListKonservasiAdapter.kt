@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.adapter
+package com.jonathan.kawanuaapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,10 +17,10 @@ class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
         if (text.isEmpty()) {
             filteredList.addAll(originalList)
         } else {
-            val query = text.toLowerCase().trim()
+            val query = text.lowercase().trim()
             originalList.forEach { konservasi ->
-                if (konservasi.nama.toLowerCase().contains(query) ||
-                    konservasi.alamat.toLowerCase().contains(query)
+                if (konservasi.nama.lowercase().contains(query) ||
+                    konservasi.alamat.lowercase().contains(query)
                 ) {
                     filteredList.add(konservasi)
                 }
