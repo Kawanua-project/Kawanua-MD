@@ -23,8 +23,8 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val contactViewViewModel =
-            ViewModelProvider(this).get(ContactViewModel::class.java)
+        val ProfileViewViewModel =
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root

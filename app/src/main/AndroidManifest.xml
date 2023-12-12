@@ -12,15 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KawanuaApp"
         tools:targetApi="31">
-
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.listnews.ListBeritaActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main">
             <intent-filter>
