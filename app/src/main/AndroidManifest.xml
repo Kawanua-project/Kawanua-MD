@@ -13,53 +13,24 @@
         android:theme="@style/Theme.KawanuaApp"
         tools:targetApi="31">
         <activity
-            android:name=".DetailSpesiesActivity"
+            android:name=".ui.listnews.ListBeritaActivity"
             android:exported="false" />
         <activity
-            android:name=".ListKonservasiActivity"
+            android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ListBeritaActivity"
-            android:exported="false"
-            android:label="@string/title_activity_list_berita"
-            android:theme="@style/Theme.KawanuaApp" />
-        <activity
-            android:name=".DetailBeritaActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ScanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--<activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>-->
     </application>
 
 </manifest>

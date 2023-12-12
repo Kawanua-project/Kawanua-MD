@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.model
 
 data class Konservasi(
     val nama: String,
