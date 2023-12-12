@@ -2,6 +2,7 @@ package com.jonathan.kawanuaapp.ui.login
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -46,6 +47,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.buttonDaftarGoogle.setOnClickListener {
             signIn()
+        }
+
+        binding.instagram.setOnClickListener {
+            openInstagram()
         }
     }
 
@@ -96,5 +101,21 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         const val TAG = "Login Activity"
+    }
+
+    private fun openInstagram(){
+        val instagramPackage = "com.instagram.android"
+        val uri = Uri.parse("https://www.instagram.com/kawanua.app/")
+
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = uri
+        intent.setPackage(instagramPackage)
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/instagram"))
+            startActivity(webIntent)
+        }
     }
 }
