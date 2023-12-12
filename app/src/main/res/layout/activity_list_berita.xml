@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".ui.listnews.ListBeritaActivity">
 
+    <TextView
+        android:id="@+id/berita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/berita"
+        android:fontFamily="@font/poppins_extra_bold"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/berita"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="8dp"
+        tools:listitem="@layout/item_row_news" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
