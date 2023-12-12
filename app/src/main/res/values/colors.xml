@@ -5,4 +5,6 @@
     <color name="primary">#096846</color>
     <color name="background">#FBFEED</color>
     <color name="background2">#FDFEF6</color>
+    <color name="highland">#748E63</color>
+    <color name="green_pale">#D2E3C8</color>
 </resources>

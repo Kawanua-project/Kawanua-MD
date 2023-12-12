@@ -1,9 +1,10 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.databinding.ItemRowContactBinding
+import com.jonathan.kawanuaapp.model.Konservasi
 
 class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
     RecyclerView.Adapter<ListKonservasiAdapter.ListViewHolder>() {

@@ -20,5 +20,4 @@
         android:id="@+id/navigation_contact"
         android:icon="@drawable/baseline_contact_phone_24"
         android:title="@string/kontak"/>
-
 </menu>

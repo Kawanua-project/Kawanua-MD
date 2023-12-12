@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.ui.login
 
 import android.app.Activity
 import android.content.Intent
@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
+import com.jonathan.kawanuaapp.ui.main.MainActivity
+import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
