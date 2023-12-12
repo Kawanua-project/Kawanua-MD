@@ -1,9 +1,10 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.jonathan.kawanuaapp.databinding.ActivityListKonservasiBinding
+import com.jonathan.kawanuaapp.RegisterViewModel
+import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
