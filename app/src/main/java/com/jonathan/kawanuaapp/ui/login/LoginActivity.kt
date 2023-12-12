@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         updateUI(currentUser)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -37,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
@@ -51,6 +52,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.instagram.setOnClickListener {
             openInstagram()
+        }
+
+        binding.linkedin.setOnClickListener {
+            openLinkedin()
         }
     }
 
@@ -92,8 +97,9 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
     private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null){
+        if (currentUser != null) {
             startActivity(Intent(this@LoginActivity, MainActivity::class.java))
             finish()
         }
@@ -103,7 +109,7 @@ class LoginActivity : AppCompatActivity() {
         const val TAG = "Login Activity"
     }
 
-    private fun openInstagram(){
+    private fun openInstagram() {
         val instagramPackage = "com.instagram.android"
         val uri = Uri.parse("https://www.instagram.com/kawanua.app/")
 
@@ -114,7 +120,21 @@ class LoginActivity : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivity(intent)
         } else {
-            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/instagram"))
+            val webIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/instagram"))
+            startActivity(webIntent)
+        }
+    }
+
+    private fun openLinkedin() {
+        val linkedInProfileUrl = "https://www.linkedin.com/company/kawanuntukalam"
+
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkedInProfileUrl))
+
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivity(intent)
+        } else {
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(linkedInProfileUrl))
             startActivity(webIntent)
         }
     }
