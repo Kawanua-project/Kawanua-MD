@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.ui.login.LoginActivity
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -16,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             // Start the main activity or any other desired activity
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, SPLASH_DELAY)

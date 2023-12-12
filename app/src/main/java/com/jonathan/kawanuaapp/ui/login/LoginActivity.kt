@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
 
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-           // .requestIdToken(getString(R.string.default_web_client_id))
+           .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
@@ -121,7 +121,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             val webIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/instagram"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/kawanua.app/"))
             startActivity(webIntent)
         }
     }
