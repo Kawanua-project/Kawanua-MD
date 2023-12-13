@@ -55,6 +55,8 @@
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/tv_name"
+            android:ellipsize="end"
+            android:maxLines="2"
             tools:text="Alamat" />
 
         <TextView

@@ -1,5 +1,8 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -41,7 +44,16 @@ class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
             tvLocation.text = konservasi.alamat
             tvNumber.text = konservasi.nomor.toString()
         }
+
+        holder.itemView.setOnClickListener {
+            val phoneNumber = konservasi.nomor.toString()
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$phoneNumber")
+            holder.itemView.context.startActivity(intent)
+        }
+
     }
 
     override fun getItemCount(): Int = originalList.size
+
 }

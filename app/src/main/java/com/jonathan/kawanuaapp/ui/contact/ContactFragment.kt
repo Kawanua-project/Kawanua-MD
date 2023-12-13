@@ -2,8 +2,12 @@ package com.jonathan.kawanuaapp.ui.contact
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +39,15 @@ class ContactFragment : Fragment() {
         list.addAll(getListKonservasi())
         showRecyclerList()
 
+        with(binding) {
+            searchView.setupWithSearchBar(searchBar)
+            searchView.editText
+                .setOnEditorActionListener { textView, actionId, event ->
+                    searchBar.text = searchView.text
+                    searchView.hide()
+                    false
+                }
+        }
 
         return root
     }
@@ -64,4 +77,5 @@ class ContactFragment : Fragment() {
         }
         return listKonservasi
     }
+
 }
