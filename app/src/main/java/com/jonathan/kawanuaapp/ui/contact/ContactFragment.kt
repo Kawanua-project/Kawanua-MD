@@ -26,7 +26,7 @@ class ContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val contactViewViewModel =
+        val contactViewModel =
             ViewModelProvider(this).get(ContactViewModel::class.java)
 
         _binding = FragmentContactBinding.inflate(inflater, container, false)
