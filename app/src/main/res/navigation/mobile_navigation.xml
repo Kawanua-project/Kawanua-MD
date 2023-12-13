@@ -29,6 +29,4 @@
         android:label="@string/kontak"
         tools:layout="@layout/fragment_contact" />
 
-
-
 </navigation>

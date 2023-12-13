@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -20,16 +19,20 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.NewsAdapter
+import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.model.Zoo
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private  lateinit var mMapView: MapView
+    private lateinit var mMapView: MapView
     private lateinit var news: List<ArticlesItem>
     private lateinit var adapter: NewsAdapter
     private lateinit var recyclerView: RecyclerView
+    private val viewModel by viewModels<HomeViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -40,24 +43,56 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+//        val homeViewModel =
+//            ViewModelProvider(this)[HomeViewModel::class.java]
+//
+//        val homeViewModel = ViewModelProvider(this, HomeViewModelFactory(repository))
+//            .get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        homeViewModel.news.observe(viewLifecycleOwner) { news ->
-            this.news = news
-            adapter = NewsAdapter(news)
-            recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        }
+//        recyclerView = binding.rvMain
+//
+//        viewModel.news.observe(viewLifecycleOwner) { news ->
+//            this.news = news
+//            adapter = NewsAdapter(news)
+//            recyclerView.adapter = adapter
+//            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        }
 
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getNews()
+
+        recyclerView = binding.rvMain
+
+        viewModel.news.observe(viewLifecycleOwner) { news ->
+            this.news = news
+            adapter = NewsAdapter(news)
+            recyclerView.adapter = adapter
+//            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            val horizontalLayoutManager = LinearLayoutManager(
+                requireContext(), LinearLayoutManager.HORIZONTAL, false
+            )
+            recyclerView.layoutManager = horizontalLayoutManager // Set horizontal layout manager
+        }
+
+//        viewModel.news.observe(viewLifecycleOwner) { listnews ->
+//            val listNews = ArrayList<ArticlesItem>()
+//            with(binding) {
+//                for (news in listnews) {
+//                    listNews.clear()
+//                    listNews.addAll(listnews)
+//                }
+//                rvMain.layoutManager = LinearLayoutManager(context)
+//                val adapter = NewsAdapter(listnews)
+//                rvMain.adapter = adapter
+//            }
+//        }
 
         mMapView = binding.mapView
         mMapView.onCreate(savedInstanceState)
