@@ -1,7 +1,10 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.databinding.ItemRowContactBinding
 import com.jonathan.kawanuaapp.model.Konservasi
@@ -40,6 +43,12 @@ class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
             tvName.text = konservasi.nama
             tvLocation.text = konservasi.alamat
             tvNumber.text = konservasi.nomor.toString()
+        }
+
+        holder.itemView.setOnClickListener {
+            val phoneNumber = "tel: $konservasi.nomor"
+            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber))
+            startActivity(holder.itemView.context, dialIntent, null)
         }
     }
 
