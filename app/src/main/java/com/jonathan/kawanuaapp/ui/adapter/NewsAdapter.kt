@@ -15,7 +15,7 @@ class NewsAdapter(
 
     companion object {
         const val HORIZONTAL = 1
-        private const val VERTICAL = 2
+        const val VERTICAL = 2
     }
 //    class ListViewHolder(var bind: ItemRowMainBinding) : RecyclerView.ViewHolder(bind.root)
 
