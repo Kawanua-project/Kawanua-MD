@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
+import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
 
 
 class ViewModelFactory(private val repository: UserRepository, private val newsRepository: NewsRepository) :
@@ -17,6 +18,9 @@ class ViewModelFactory(private val repository: UserRepository, private val newsR
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(newsRepository) as T
+            }
+            modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
+                ListBeritaViewModel(newsRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
