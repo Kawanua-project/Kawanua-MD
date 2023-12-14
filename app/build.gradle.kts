@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -10,6 +11,7 @@ android {
 
     defaultConfig {
         buildConfigField("String", "API_URL", "\"https://reqres.in/api/\"")
+        buildConfigField("String", "API_URL_NEWS", "\"https://newsapi.org/v2/\"")
 
         applicationId = "com.jonathan.kawanuaapp"
         minSdk = 24
@@ -60,7 +62,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("com.google.firebase:firebase-auth:22.3.0")
-    implementation("androidx.preference:preference:1.2.0")
+    implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     testImplementation("junit:junit:4.13.2")
@@ -73,6 +75,9 @@ dependencies {
 
     // Datastore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

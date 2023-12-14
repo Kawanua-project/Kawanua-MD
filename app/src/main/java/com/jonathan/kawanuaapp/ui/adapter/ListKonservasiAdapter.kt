@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.databinding.ItemRowContactBinding
 import com.jonathan.kawanuaapp.model.Konservasi
@@ -46,7 +47,7 @@ class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
         }
 
         holder.itemView.setOnClickListener {
-            val phoneNumber = konservasi.nomor.toString()
+            val phoneNumber = konservasi.nomor
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:$phoneNumber")
             holder.itemView.context.startActivity(intent)

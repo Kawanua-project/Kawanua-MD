@@ -27,9 +27,6 @@
             android:value="AIzaSyD5yQYmPklVPuH5hwx20SeCl4zUPVG8VmI" />
 
         <activity
-            android:name=".ui.listnews.ListBeritaActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
         <activity
