@@ -19,24 +19,22 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
-import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.model.Zoo
+import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var mMapView: MapView
-<<<<<<< HEAD
-=======
+
     private lateinit var news: List<ArticlesItem>
     private lateinit var adapter: NewsAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
->>>>>>> 592e0b74c5e198dcc2c3cd5c8ae6c0aa90ade5d8
 
     // This property is only valid between onCreateView and
     // onDestroyView.

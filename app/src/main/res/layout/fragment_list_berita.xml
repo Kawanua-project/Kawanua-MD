@@ -10,6 +10,8 @@
         android:id="@+id/berita"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:text="@string/berita"
         android:fontFamily="@font/poppins_extra_bold"
         android:textSize="20sp"

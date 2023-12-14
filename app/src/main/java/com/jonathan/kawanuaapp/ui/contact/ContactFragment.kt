@@ -36,7 +36,7 @@ class ContactFragment : Fragment() {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val konservasiList = contactViewViewModel.setListKonservasi(resources)
+        val konservasiList = contactViewModel.setListKonservasi(resources)
         list.addAll(konservasiList)
 
         showRecyclerList()
