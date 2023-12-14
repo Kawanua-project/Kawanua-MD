@@ -22,7 +22,7 @@ import com.jonathan.kawanuaapp.model.Zoo
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    private  lateinit var mMapView: MapView
+    private lateinit var mMapView: MapView
 
     // This property is only valid between onCreateView and
     // onDestroyView.

@@ -1,46 +1,46 @@
 <resources>
     <string name="app_name">Kawanua App</string>
-    <string name="regis">Sign Up</string>
-    <string name="atau">Or</string>
-    <string name="silahkan_isi_form_terlebih__dahulu">Please fill the form</string>
-    <string name="masukan_email">Enter Your Email</string>
-    <string name="masukan_username">Enter Your Username</string>
-    <string name="konfirmasi_password">Password Confirmation</string>
-    <string name="masukan_password">Enter Your Password</string>
-    <string name="daftar">SIGN UP</string>
-    <string name="daftar_dengan_google">SIGN UP WITH GOOGLE</string>
-    <string name="sudah_punya_akun_masuk">ALREADY HAVE AN ACCOUNT? LOG IN</string>
+    <string name="regis">Daftar</string>
+    <string name="atau">Atau</string>
+    <string name="silahkan_isi_form_terlebih__dahulu">"Silakan isi form terlebih dahulu "</string>
+    <string name="masukan_email">Masukan Email</string>
+    <string name="masukan_username">Masukan Username</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="masukan_password">Masukan Password</string>
+    <string name="daftar">DAFTAR</string>
+    <string name="daftar_dengan_google">DAFTAR DENGAN GOOGLE</string>
+    <string name="sudah_punya_akun_masuk">SUDAH PUNYA AKUN? MASUK</string>
     <string name="kawanua">KAWANUA</string>
-    <string name="gallery">Gallery</string>
+    <string name="gallery">Galeri</string>
     <string name="scan_screen">Scan Screen</string>
-    <string name="kamera">Camera</string>
-    <string name="unggah">Upload</string>
-    <string name="beranda">Home</string>
-    <string name="profil">Profile</string>
-    <string name="pindai">Scan</string>
-    <string name="kontak">Contact</string>
+    <string name="kamera">Kamera</string>
+    <string name="unggah">Unggah</string>
+    <string name="beranda">Beranda</string>
+    <string name="profil">Profil</string>
+    <string name="pindai">Pindai</string>
+    <string name="kontak">Kontak</string>
     <string name="title_activity_bottom_navigation">bottom_navigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="mode_gelap">Dark Mode</string>
-    <string name="keluar">Logout</string>
-    <string name="bahasa">Languange</string>
-    <string name="scan">Scan</string>
-    <string name="berita">News</string>
+    <string name="mode_gelap">Mode Gelap</string>
+    <string name="keluar">Keluar</string>
+    <string name="bahasa">Bahasa</string>
+    <string name="scan">Pindai</string>
+    <string name="berita">Berita</string>
     <string name="banner">Banner</string>
-    <string name="ikuti">FOLLOW US</string>
+    <string name="ikuti">IKUTI KAMI</string>
     <string name="tombol_bahasa">Button Language</string>
-    <string name="masuktitle">Welcome back! Fill in to Log In!</string>
-    <string name="masukgoogle">LOGIN WITH GOOGLE</string>
-    <string name="masuk">LOGIN</string>
+    <string name="masuktitle">Selamat datang kembali!  Isi Untuk Masuk!</string>
+    <string name="masukgoogle">MASUK DENGAN GOOGLE</string>
+    <string name="masuk">MASUK</string>
     <string name="ig">Instagram</string>
     <string name="linkedin">LinkedIn</string>
-    <string name="lupa">Forgot Password?</string>
-    <string name="noakun">Don\'t have an account yet?</string>
-    <string name="hasil">Scan Result</string>
+    <string name="lupa">LUPA PASSWORD</string>
+    <string name="noakun">BELUM PUNYA AKUN?</string>
+    <string name="hasil">Hasil Pindai</string>
     <string name="ksdae">KSDAE</string>
-    <string name="kebun">Nearest conservation place</string>
+    <string name="kebun">Konservasi Alam Terdekat</string>
     <string name="title_activity_list_berita">ListBeritaActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -84,7 +84,7 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="lihat_semua">SEE ALL</string>
+    <string name="lihat_semua">LIHAT SEMUA</string>
 
     <string name="title_activity_main">MainActivity</string>
     <!-- Preference Titles -->

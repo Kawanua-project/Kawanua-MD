@@ -36,7 +36,9 @@ class ContactFragment : Fragment() {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        list.addAll(getListKonservasi())
+        val konservasiList = contactViewViewModel.setListKonservasi(resources)
+        list.addAll(konservasiList)
+
         showRecyclerList()
 
         with(binding) {
@@ -66,16 +68,5 @@ class ContactFragment : Fragment() {
         }
     }
 
-    private fun getListKonservasi(): ArrayList<Konservasi> {
-        val dataNama = resources.getStringArray(R.array.data_nama)
-        val dataAlamat = resources.getStringArray(R.array.data_alamat)
-        val dataNomor = resources.getStringArray(R.array.data_nomor)
-        val listKonservasi = ArrayList<Konservasi>()
-        for (i in dataNama.indices) {
-            val konservasi = Konservasi(dataNama[i], dataAlamat[i], dataNomor[i])
-            listKonservasi.add(konservasi)
-        }
-        return listKonservasi
-    }
 
 }

@@ -3,6 +3,7 @@ package com.jonathan.kawanuaapp
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jonathan.kawanuaapp.ui.profile.ProfileViewModel
 
 class ViewModelFactory(private val repository: UserRepository) :
     ViewModelProvider.NewInstanceFactory() {
