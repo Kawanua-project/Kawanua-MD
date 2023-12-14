@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 
+
 class ViewModelFactory(private val repository: UserRepository, private val newsRepository: NewsRepository) :
     ViewModelProvider.NewInstanceFactory() {
 

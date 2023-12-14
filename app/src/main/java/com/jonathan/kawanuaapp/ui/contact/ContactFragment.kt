@@ -2,8 +2,12 @@ package com.jonathan.kawanuaapp.ui.contact
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,9 +36,10 @@ class ContactFragment : Fragment() {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        list.addAll(getListKonservasi())
-        showRecyclerList()
+        val konservasiList = contactViewViewModel.setListKonservasi(resources)
+        list.addAll(konservasiList)
 
+        showRecyclerList()
 
         return root
     }
@@ -53,15 +58,5 @@ class ContactFragment : Fragment() {
         }
     }
 
-    private fun getListKonservasi(): ArrayList<Konservasi> {
-        val dataNama = resources.getStringArray(R.array.data_nama)
-        val dataAlamat = resources.getStringArray(R.array.data_alamat)
-        val dataNomor = resources.getStringArray(R.array.data_nomor)
-        val listKonservasi = ArrayList<Konservasi>()
-        for (i in dataNama.indices) {
-            val konservasi = Konservasi(dataNama[i], dataAlamat[i], dataNomor[i])
-            listKonservasi.add(konservasi)
-        }
-        return listKonservasi
-    }
+
 }

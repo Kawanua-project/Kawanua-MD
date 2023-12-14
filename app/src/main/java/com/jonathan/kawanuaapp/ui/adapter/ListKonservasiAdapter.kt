@@ -1,5 +1,6 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
@@ -46,11 +47,14 @@ class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
         }
 
         holder.itemView.setOnClickListener {
-            val phoneNumber = "tel: $konservasi.nomor"
-            val dialIntent = Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumber))
-            startActivity(holder.itemView.context, dialIntent, null)
+            val phoneNumber = konservasi.nomor
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$phoneNumber")
+            holder.itemView.context.startActivity(intent)
         }
+
     }
 
     override fun getItemCount(): Int = originalList.size
+
 }

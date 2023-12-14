@@ -29,12 +29,15 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var mMapView: MapView
+<<<<<<< HEAD
+=======
     private lateinit var news: List<ArticlesItem>
     private lateinit var adapter: NewsAdapter
     private lateinit var recyclerView: RecyclerView
     private val viewModel by viewModels<HomeViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
+>>>>>>> 592e0b74c5e198dcc2c3cd5c8ae6c0aa90ade5d8
 
     // This property is only valid between onCreateView and
     // onDestroyView.
