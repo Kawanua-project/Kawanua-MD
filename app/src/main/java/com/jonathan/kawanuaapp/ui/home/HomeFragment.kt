@@ -19,8 +19,7 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
-import com.jonathan.kawanuaapp.NewsAdapter
-import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.model.Zoo
@@ -55,9 +54,7 @@ class HomeFragment : Fragment() {
 
         val more = binding.tvLihatSemua
 
-        // Set OnClickListener for the button
         more.setOnClickListener {
-            // Navigate to ContactFragment when the button is clicked
             val action = HomeFragmentDirections.actionHomeToContact()
             findNavController().navigate(action)
         }
@@ -68,27 +65,14 @@ class HomeFragment : Fragment() {
 
         viewModel.news.observe(viewLifecycleOwner) { news ->
             this.news = news
-            adapter = NewsAdapter(news)
+            val viewType = NewsAdapter.HORIZONTAL
+            adapter = NewsAdapter(news, viewType)
             recyclerView.adapter = adapter
-//            recyclerView.layoutManager = LinearLayoutManager(requireContext())
             val horizontalLayoutManager = LinearLayoutManager(
                 requireContext(), LinearLayoutManager.HORIZONTAL, false
             )
-            recyclerView.layoutManager = horizontalLayoutManager // Set horizontal layout manager
+            recyclerView.layoutManager = horizontalLayoutManager
         }
-
-//        viewModel.news.observe(viewLifecycleOwner) { listnews ->
-//            val listNews = ArrayList<ArticlesItem>()
-//            with(binding) {
-//                for (news in listnews) {
-//                    listNews.clear()
-//                    listNews.addAll(listnews)
-//                }
-//                rvMain.layoutManager = LinearLayoutManager(context)
-//                val adapter = NewsAdapter(listnews)
-//                rvMain.adapter = adapter
-//            }
-//        }
 
         mMapView = binding.mapView
         mMapView.onCreate(savedInstanceState)
