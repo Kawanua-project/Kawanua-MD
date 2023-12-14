@@ -41,16 +41,6 @@ class ContactFragment : Fragment() {
 
         showRecyclerList()
 
-        with(binding) {
-            searchView.setupWithSearchBar(searchBar)
-            searchView.editText
-                .setOnEditorActionListener { textView, actionId, event ->
-                    searchBar.text = searchView.text
-                    searchView.hide()
-                    false
-                }
-        }
-
         return root
     }
 
