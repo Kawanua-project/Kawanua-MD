@@ -1,28 +1,29 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
+import android.app.Activity
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.databinding.ItemRowMainBinding
 import com.jonathan.kawanuaapp.databinding.ItemRowNewsBinding
 import com.jonathan.kawanuaapp.loadImage
+import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
+import com.jonathan.kawanuaapp.ui.main.MainActivity
 
 class NewsAdapter(
     private val listNews: List<ArticlesItem>,
-    private val viewType: Int
+    private val viewType: Int,
+    private val newsItemClickListener: NewsItemClickListener // Add this parameter
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val HORIZONTAL = 1
         const val VERTICAL = 2
     }
-//    class ListViewHolder(var bind: ItemRowMainBinding) : RecyclerView.ViewHolder(bind.root)
-
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-//        val bind = ItemRowMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return ListViewHolder(bind)
-//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -45,23 +46,36 @@ class NewsAdapter(
                 val viewHolderOne = holder as ListViewHolderHorizontal
                 viewHolderOne.bind.tvTitle.text = news.title
                 viewHolderOne.bind.imgNews.loadImage(news.urlToImage)
+                viewHolderOne.bind.root.setOnClickListener {
+                    newsItemClickListener.onNewsItemClicked(news)
+                }
+//                viewHolderOne.bind.root.setOnClickListener { view ->
+//                    val intentDetail = Intent(view.context, MainActivity::class.java)
+//                    intentDetail.putExtra("news", news)
+//
+//                    view.context.startActivity(intentDetail)
+//                }
+
             }
             VERTICAL -> {
                 val viewHolderTwo = holder as ListViewHolderVertical
                 viewHolderTwo.bind.tvTitle.text = news.title
                 viewHolderTwo.bind.tvDate.text = news.publishedAt
                 viewHolderTwo.bind.imgNews.loadImage(news.urlToImage)
+//                viewHolderTwo.bind.root.setOnClickListener { view ->
+//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
+//                    intentDetail.putExtra("news", news)
+//
+//                    view.context.startActivity(intentDetail)
+//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
+//                    val bundle = Bundle()
+//                    bundle.putParcelable("news", news)
+//                    intentDetail.putExtras(bundle)
+//                    view.context.startActivity(intentDetail)
+//                }
             }
         }
     }
-
-//    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-//        val news = listNews[position]
-//        with(holder.bind) {
-//            tvTitle.text = news.title
-//            imgNews.loadImage(news.urlToImage)
-//        }
-//    }
 
     override fun getItemCount(): Int = listNews.size
 
@@ -72,5 +86,9 @@ class NewsAdapter(
     class ListViewHolderHorizontal(val bind: ItemRowMainBinding) : RecyclerView.ViewHolder(bind.root)
 
     class ListViewHolderVertical(val bind: ItemRowNewsBinding) : RecyclerView.ViewHolder(bind.root)
+
+    interface NewsItemClickListener {
+        fun onNewsItemClicked(newsItem: ArticlesItem)
+    }
 
 }

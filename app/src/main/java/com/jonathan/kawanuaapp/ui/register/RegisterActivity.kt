@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
                 delay(1000)
             }
             if(it == "Register berhasil") {
-                startActivity(Intent(this@RegisterActivity, HomeFragment::class.java))
+                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
             }
         }
     }

@@ -15,7 +15,7 @@ import com.jonathan.kawanuaapp.databinding.FragmentListBeritaBinding
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 import com.jonathan.kawanuaapp.ui.home.HomeFragmentDirections
 
-class ListBeritaFragment : Fragment() {
+class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
     private var _binding: FragmentListBeritaBinding? = null
     private lateinit var news: List<ArticlesItem>
@@ -49,10 +49,15 @@ class ListBeritaFragment : Fragment() {
         viewModel.news.observe(viewLifecycleOwner) { news ->
             this.news = news
             val viewType = NewsAdapter.VERTICAL
-            adapter = NewsAdapter(news, viewType)
+            adapter = NewsAdapter(news, viewType, this)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
+    }
+
+    override fun onNewsItemClicked(newsItem: ArticlesItem) {
+        val action = HomeFragmentDirections.actionHomeToDetail()
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

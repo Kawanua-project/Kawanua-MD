@@ -1,11 +1,10 @@
 package com.jonathan.kawanuaapp.data.retrofit.api
 
+import com.jonathan.kawanuaapp.data.model.UserLogin
 import com.jonathan.kawanuaapp.data.model.UserRegister
+import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import com.jonathan.kawanuaapp.data.retrofit.response.RegisterResponse
-import com.jonathan.kawanuaapp.data.retrofit.response.Response
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
@@ -17,5 +16,10 @@ interface ApiService {
         @Body request: UserRegister
     ): RegisterResponse
 
+    @Headers("Content-Type: application/json")
+    @POST("login")
+    suspend fun login(
+        @Body request: UserLogin
+    ): LoginResponse
 
 }

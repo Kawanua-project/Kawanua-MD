@@ -7,8 +7,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.databinding.ActivityMainBinding
+import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +21,16 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        val news = intent.getParcelableExtra<ArticlesItem>("news")
+//        val fragment = DetailNewsFragment()
+//        val bundle = Bundle()
+//        bundle.putParcelable("news", news)
+//        fragment.arguments = bundle
+//
+//        supportFragmentManager.beginTransaction()
+//            .replace(R.id.nav_host_fragment_activity_main, fragment) // Replace 'fragmentContainer' with your actual container ID
+//            .commit()
 
         val navView: BottomNavigationView = binding.navView
         setSupportActionBar(binding.toolbar)

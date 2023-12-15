@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.ui.register
+package com.jonathan.kawanuaapp.ui.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,24 +6,30 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jonathan.kawanuaapp.UserRepository
+import com.jonathan.kawanuaapp.data.pref.UserModel
+import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
+class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _response = MutableLiveData<String>()
     val response: LiveData<String> = _response
 
+    private val _token = MutableLiveData<LoginResponse>()
+    val token: LiveData<LoginResponse> = _token
+
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun register(name: String, email: String, password: String, confPass: String) {
+    fun login(email: String, password: String) {
         viewModelScope.launch {
             try {
                 _isLoading.value = true
-                val registerResponse = userRepository.register(name, email, password, confPass)
-                _response.value = registerResponse.msg.toString()
-                Log.d(TAG, registerResponse.msg.toString())
+                val loginResponse = userRepository.login(email, password)
+                _response.value = loginResponse.message.toString()
+                _token.postValue(loginResponse)
+                Log.d(TAG, loginResponse.message.toString())
                 _isLoading.value = false
             } catch (e: HttpException) {
                 _response.value = "Gagal mendaftar"
@@ -33,7 +39,13 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
         }
     }
 
+    fun saveSession(user: UserModel) {
+        viewModelScope.launch {
+            userRepository.saveSession(user)
+        }
+    }
+
     companion object {
-        const val TAG = "SignupViewModel"
+        const val TAG = "LoginViewModel"
     }
 }

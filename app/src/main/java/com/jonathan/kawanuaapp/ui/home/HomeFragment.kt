@@ -23,8 +23,9 @@ import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 import com.jonathan.kawanuaapp.data.*
+import com.jonathan.kawanuaapp.data.model.Zoo
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var mMapView: MapView
@@ -66,7 +67,7 @@ class HomeFragment : Fragment() {
         viewModel.news.observe(viewLifecycleOwner) { news ->
             this.news = news
             val viewType = NewsAdapter.HORIZONTAL
-            adapter = NewsAdapter(news, viewType)
+            adapter = NewsAdapter(news, viewType, this)
             recyclerView.adapter = adapter
             val horizontalLayoutManager = LinearLayoutManager(
                 requireContext(), LinearLayoutManager.HORIZONTAL, false
@@ -163,6 +164,11 @@ class HomeFragment : Fragment() {
             val latLng = LatLng(it.latitude, it.longitude)
             googleMap.addMarker(MarkerOptions().position(latLng).title(it.name))
         }
+    }
+
+    override fun onNewsItemClicked(newsItem: ArticlesItem) {
+        val action = HomeFragmentDirections.actionHomeToDetail()
+        findNavController().navigate(action)
     }
 
 }
