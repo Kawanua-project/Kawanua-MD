@@ -21,14 +21,13 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
-import com.jonathan.kawanuaapp.data.model.Zoo
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
+import com.jonathan.kawanuaapp.data.*
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private lateinit var mMapView: MapView
-
     private lateinit var news: List<ArticlesItem>
     private lateinit var adapter: NewsAdapter
     private lateinit var recyclerView: RecyclerView

@@ -1,5 +1,6 @@
 package com.jonathan.kawanuaapp
 
+import com.jonathan.kawanuaapp.data.model.UserRegister
 import com.jonathan.kawanuaapp.data.pref.UserModel
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.retrofit.api.ApiService
@@ -26,7 +27,8 @@ class UserRepository private constructor(
 
 
     suspend fun register(name: String, email: String, password: String, confPass: String): RegisterResponse {
-        return apiService.register(name, email, password, confPass)
+        val userRegister = UserRegister(name, email, password, confPass)
+        return apiService.register(userRegister)
     }
 
 //    suspend fun login(email: String, password: String): Flow<Result<LoginResponse>> = flow {
