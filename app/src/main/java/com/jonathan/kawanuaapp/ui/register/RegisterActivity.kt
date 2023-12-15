@@ -47,7 +47,7 @@ class RegisterActivity : AppCompatActivity() {
             showLoading(it)
         }
 
-        viewModel.registrationStatus.observe(this) {
+        viewModel.response.observe(this) {
             showToast(it.toString())
         }
     }

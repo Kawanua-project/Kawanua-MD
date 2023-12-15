@@ -1,5 +1,6 @@
 package com.jonathan.kawanuaapp.data.retrofit.api
 
+import com.jonathan.kawanuaapp.data.retrofit.response.RegisterResponse
 import com.jonathan.kawanuaapp.data.retrofit.response.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -14,8 +15,7 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("confpassword") confpassword: String
-    ): Response
+    ): RegisterResponse
 
-
-
+    
 }

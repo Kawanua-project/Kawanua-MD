@@ -1,5 +1,6 @@
 package com.jonathan.kawanuaapp.ui.register
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,29 +11,34 @@ import com.jonathan.kawanuaapp.UserRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _registrationStatus = MutableLiveData<Result<Response>>()
-    val registrationStatus: LiveData<Result<Response>> = _registrationStatus
+    private val _response = MutableLiveData<String>()
+    val response: LiveData<String> = _response
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun register(name: String, email: String, password: String, confPassword: String) {
+    fun register(name: String, email: String, password: String, confPass: String) {
         viewModelScope.launch {
-            _registrationStatus.value = Result.Loading
-            userRepository.register(name, email, password, confPassword)
-                .onStart { _isLoading.value = true }
-                .catch { e ->
-                    _registrationStatus.value = Result.Error(e)
-                    _isLoading.value = false
-                }
-                .collect { responseResult ->
-                    _registrationStatus.value = responseResult
-                    _isLoading.value = false
-                }
+            try {
+                _isLoading.value = true
+                val registerResponse = userRepository.register(name, email, password, confPass)
+                _response.value = registerResponse.msg.toString()
+                Log.d(TAG, registerResponse.msg.toString())
+                _isLoading.value = false
+            } catch (e: HttpException) {
+                _response.value = "Gagal mendaftar"
+                Log.d(TAG, e.message.toString())
+                _isLoading.value = false
+            }
         }
+    }
+
+    companion object {
+        const val TAG = "SignupViewModel"
     }
 
 }
