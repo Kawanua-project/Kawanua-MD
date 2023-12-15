@@ -1,6 +1,8 @@
 package com.jonathan.kawanuaapp
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class NewsResponse(
 
@@ -23,6 +25,7 @@ data class Source(
 	val id: String? = null
 )
 
+@Parcelize
 data class ArticlesItem(
 
 	@field:SerializedName("publishedAt")
@@ -37,9 +40,6 @@ data class ArticlesItem(
 	@field:SerializedName("description")
 	val description: String? = null,
 
-	@field:SerializedName("source")
-	val source: Source? = null,
-
 	@field:SerializedName("title")
 	val title: String? = null,
 
@@ -48,4 +48,4 @@ data class ArticlesItem(
 
 	@field:SerializedName("content")
 	val content: String? = null
-)
+) : Parcelable

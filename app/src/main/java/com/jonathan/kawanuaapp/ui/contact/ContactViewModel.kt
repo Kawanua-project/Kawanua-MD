@@ -12,7 +12,6 @@ class ContactViewModel : ViewModel() {
     private val _listKonservasi = MutableLiveData<ArrayList<Konservasi>>()
     val listKonservasi: LiveData<ArrayList<Konservasi>> = _listKonservasi
 
-
     fun setListKonservasi(resources: Resources): ArrayList<Konservasi> {
         val dataNama = resources.getStringArray(R.array.data_nama)
         val dataAlamat = resources.getStringArray(R.array.data_alamat)

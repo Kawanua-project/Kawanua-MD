@@ -9,7 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -21,13 +23,24 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.data.pref.UserModel
+import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import com.jonathan.kawanuaapp.databinding.ActivityLoginBinding
+import com.jonathan.kawanuaapp.ui.home.HomeFragment
 import com.jonathan.kawanuaapp.ui.register.RegisterActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var email: String
+    private lateinit var password: String
+    private val viewModel by viewModels<LoginViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onStart() {
         super.onStart()
@@ -40,9 +53,45 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setupAction()
+        playAnimation()
+
+        binding.progressBar.visibility = View.GONE
+
+        viewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+
+//        viewModel.response.observe(this) {
+//            showToast(it.toString())
+//            runBlocking {
+//                delay(1000)
+//            }
+//            if(it == null) {
+//                startActivity(Intent(this@LoginActivity, HomeFragment::class.java))
+//                val token = LoginResponse.token
+//                token?.let { it1 -> UserModel(email, it1) }
+//                    ?.let { it2 -> viewModel.saveSession(it2) }
+//                viewModel.saveSession(user)
+//            }
+//        }
+
+        viewModel.token.observe(this) {
+            showToast("Login berhasil")
+            runBlocking {
+                delay(1000)
+            }
+            if(it != null) {
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                val token = it.token
+                token?.let { it1 -> UserModel(email, it1) }
+                    ?.let { it2 -> viewModel.saveSession(it2) }
+            }
+        }
+
         val gso = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-           .requestIdToken(getString(R.string.default_web_client_id))
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
@@ -169,5 +218,33 @@ class LoginActivity : AppCompatActivity() {
             )
             startDelay = 100
         }.start()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setupAction() {
+
+        binding.buttonMasuk.setOnClickListener {
+            email = binding.emailPengguna.text.toString()
+            password = binding.passwordPengguna.text.toString()
+
+            binding.progressBar.visibility = View.VISIBLE
+
+            viewModel.login(email, password)
+        }
+
+        binding.tvDaftar.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+        }
     }
 }

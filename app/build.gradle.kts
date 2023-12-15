@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -10,7 +11,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        buildConfigField("String", "API_URL", "\"https://reqres.in/api/\"")
+        buildConfigField("String", "API_URL", "\"https://kawanua-qxgwgqaooa-uc.a.run.app/\"")
         buildConfigField("String", "API_URL_NEWS", "\"https://newsapi.org/v2/\"")
 
         applicationId = "com.jonathan.kawanuaapp"

@@ -3,9 +3,12 @@ package com.jonathan.kawanuaapp
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsViewModel
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
+import com.jonathan.kawanuaapp.ui.login.LoginViewModel
 import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
+import com.jonathan.kawanuaapp.ui.splash.SplashViewModel
 
 
 class ViewModelFactory(private val repository: UserRepository, private val newsRepository: NewsRepository) :
@@ -22,6 +25,15 @@ class ViewModelFactory(private val repository: UserRepository, private val newsR
             }
             modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
                 ListBeritaViewModel(newsRepository) as T
+            }
+            modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
+                DetailNewsViewModel() as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
+                SplashViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
