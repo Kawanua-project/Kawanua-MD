@@ -33,14 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="11dp"
-            android:textColor="@color/white"
+            android:ellipsize="end"
             android:fontFamily="@font/poppins_medium"
+            android:maxLines="2"
+            android:textColor="@color/white"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/img_news"
-            android:maxLines="1"
-            android:ellipsize="end"
             tools:text="Title" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
