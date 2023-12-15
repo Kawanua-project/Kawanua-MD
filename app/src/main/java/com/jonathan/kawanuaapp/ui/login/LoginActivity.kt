@@ -1,11 +1,14 @@
 package com.jonathan.kawanuaapp.ui.login
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -19,6 +22,7 @@ import com.google.firebase.auth.auth
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.databinding.ActivityLoginBinding
+import com.jonathan.kawanuaapp.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -57,6 +61,12 @@ class LoginActivity : AppCompatActivity() {
         binding.linkedin.setOnClickListener {
             openLinkedin()
         }
+
+        binding.tvDaftar.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+
+        playAnimation()
     }
 
     private fun signIn() {
@@ -137,5 +147,27 @@ class LoginActivity : AppCompatActivity() {
             val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(linkedInProfileUrl))
             startActivity(webIntent)
         }
+    }
+
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.logoKawanua, View.TRANSLATION_X, -60f, 60f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val emailEditTextLayout =
+            ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f).setDuration(1000)
+
+        val passwordEditTextLayout =
+            ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(1000)
+
+        AnimatorSet().apply {
+            playSequentially(
+                emailEditTextLayout,
+                passwordEditTextLayout,
+            )
+            startDelay = 100
+        }.start()
     }
 }

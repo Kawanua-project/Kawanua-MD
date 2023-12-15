@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.retrofit
+package com.jonathan.kawanuaapp.data.retrofit.api
 
 import com.jonathan.kawanuaapp.NewsResponse
 import retrofit2.Call

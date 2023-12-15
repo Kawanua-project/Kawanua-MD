@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
+import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
 
 
 class ViewModelFactory(private val repository: UserRepository, private val newsRepository: NewsRepository) :

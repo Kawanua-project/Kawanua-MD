@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.pref
+package com.jonathan.kawanuaapp.data.pref
 
 data class UserModel(
     val email: String,

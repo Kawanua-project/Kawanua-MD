@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jonathan.kawanuaapp.model.Konservasi
+import com.jonathan.kawanuaapp.data.model.Konservasi
 import com.jonathan.kawanuaapp.ui.adapter.ListKonservasiAdapter
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.databinding.FragmentContactBinding

@@ -1,10 +1,10 @@
 package com.jonathan.kawanuaapp
 
 import android.content.Context
-import com.jonathan.kawanuaapp.pref.UserPreference
-import com.jonathan.kawanuaapp.pref.dataStore
-import com.jonathan.kawanuaapp.retrofit.ApiConfig
-import com.jonathan.kawanuaapp.retrofit.NewsApiConfig
+import com.jonathan.kawanuaapp.data.pref.UserPreference
+import com.jonathan.kawanuaapp.data.pref.dataStore
+import com.jonathan.kawanuaapp.data.retrofit.api.ApiConfig
+import com.jonathan.kawanuaapp.data.retrofit.api.NewsApiConfig
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

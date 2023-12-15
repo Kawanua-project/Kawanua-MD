@@ -19,10 +19,10 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
-import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
-import com.jonathan.kawanuaapp.model.Zoo
+import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
+import com.jonathan.kawanuaapp.data.*
 
 class HomeFragment : Fragment() {
 

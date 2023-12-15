@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.data.retrofit.response
 
 import com.google.gson.annotations.SerializedName
 

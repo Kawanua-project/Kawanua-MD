@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.model
+package com.jonathan.kawanuaapp.data.model
 
 data class Zoo(
     val name: String,
