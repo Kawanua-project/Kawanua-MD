@@ -19,6 +19,7 @@ import com.google.firebase.auth.auth
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.databinding.ActivityLoginBinding
+import com.jonathan.kawanuaapp.ui.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -56,6 +57,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.linkedin.setOnClickListener {
             openLinkedin()
+        }
+
+        binding.tvDaftar.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
 

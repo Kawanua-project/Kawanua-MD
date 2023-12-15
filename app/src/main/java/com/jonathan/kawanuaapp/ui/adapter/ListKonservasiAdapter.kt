@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.databinding.ItemRowContactBinding
-import com.jonathan.kawanuaapp.model.Konservasi
+import com.jonathan.kawanuaapp.data.model.Konservasi
 
 class ListKonservasiAdapter(private val originalList: ArrayList<Konservasi>) :
     RecyclerView.Adapter<ListKonservasiAdapter.ListViewHolder>() {

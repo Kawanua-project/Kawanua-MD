@@ -1,8 +1,9 @@
 package com.jonathan.kawanuaapp
 
-import com.jonathan.kawanuaapp.pref.UserModel
-import com.jonathan.kawanuaapp.pref.UserPreference
-import com.jonathan.kawanuaapp.retrofit.ApiService
+import com.jonathan.kawanuaapp.data.pref.UserModel
+import com.jonathan.kawanuaapp.data.pref.UserPreference
+import com.jonathan.kawanuaapp.data.retrofit.api.ApiService
+import com.jonathan.kawanuaapp.data.retrofit.response.Response
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -22,10 +23,10 @@ class UserRepository private constructor(
         userPreference.logout()
     }
 
-    suspend fun register(name: String, email: String, password: String): Flow<Result<Response>> = flow {
+    suspend fun register(name: String, email: String, password: String, confPass: String): Flow<Result<Response>> = flow {
         emit(Result.Loading)
         try {
-            val response = apiService.register(email, password)
+            val response = apiService.register(name, email, password, confPass)
             emit(Result.Success(response))
         } catch (e: Exception) {
             emit(Result.Error(e))

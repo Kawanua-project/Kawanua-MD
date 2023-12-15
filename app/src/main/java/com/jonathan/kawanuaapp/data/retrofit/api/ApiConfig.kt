@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp.retrofit
+package com.jonathan.kawanuaapp.data.retrofit.api
 
 import com.jonathan.kawanuaapp.BuildConfig
 import okhttp3.Interceptor
@@ -7,8 +7,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object NewsApiConfig {
-    fun getApiService(): NewsApiService {
+object ApiConfig {
+    fun getApiService(token: String): ApiService {
         val loggingInterceptor = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         } else {
@@ -17,7 +17,7 @@ object NewsApiConfig {
         val authInterceptor = Interceptor { chain ->
             val req = chain.request()
             val requestHeaders = req.newBuilder()
-                .addHeader("Authorization", "")
+                .addHeader("Authorization", "Bearer $token")
                 .build()
             chain.proceed(requestHeaders)
         }
@@ -26,10 +26,10 @@ object NewsApiConfig {
             .addInterceptor(authInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.API_URL_NEWS)
+            .baseUrl("https://kawanua-qxgwgqaooa-uc.a.run.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
-        return retrofit.create(NewsApiService::class.java)
+        return retrofit.create(ApiService::class.java)
     }
 }

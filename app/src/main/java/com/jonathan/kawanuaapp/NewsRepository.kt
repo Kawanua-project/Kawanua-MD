@@ -1,10 +1,7 @@
 package com.jonathan.kawanuaapp
 
-import androidx.lifecycle.LiveData
-import com.jonathan.kawanuaapp.retrofit.NewsApiConfig
-import com.jonathan.kawanuaapp.retrofit.NewsApiService
+import com.jonathan.kawanuaapp.data.retrofit.api.NewsApiService
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 
 class NewsRepository (

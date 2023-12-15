@@ -21,7 +21,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
-import com.jonathan.kawanuaapp.model.Zoo
+import com.jonathan.kawanuaapp.data.model.Zoo
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
 
 class HomeFragment : Fragment() {

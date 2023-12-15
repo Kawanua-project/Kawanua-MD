@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.model.Konservasi
+import com.jonathan.kawanuaapp.data.model.Konservasi
 
 class ContactViewModel : ViewModel() {
 

@@ -7,7 +7,6 @@
     android:background="@color/background"
     tools:context=".ui.register.RegisterActivity">
 
-
     <ImageView
         android:id="@+id/logoKawanua"
         android:layout_width="100dp"
@@ -62,8 +61,10 @@
         app:startIconDrawable="@drawable/baseline_account_circle_24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nama_pengguna"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,9 +81,11 @@
         app:layout_constraintTop_toBottomOf="@id/textFieldUsername"
         app:startIconDrawable="@drawable/baseline_email_24">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.jonathan.kawanuaapp.ui.custom.EmailEditText
+            android:id="@+id/email_pengguna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
             android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -94,16 +97,19 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:background="@color/white"
-        android:hint="@string/masukan_password"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="@+id/textFieldEmail"
         app:layout_constraintStart_toStartOf="@+id/textFieldEmail"
         app:layout_constraintTop_toBottomOf="@id/textFieldEmail">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.jonathan.kawanuaapp.ui.custom.PasswordEditText
+            android:id="@+id/password_pengguna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/masukan_password"
+            android:inputType="textPassword"
+            android:paddingStart="8dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,18 +121,29 @@
         android:layout_marginTop="16dp"
         android:background="@color/white"
         android:hint="@string/konfirmasi_password"
+        app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="@+id/textFieldPassword"
         app:layout_constraintStart_toStartOf="@+id/textFieldPassword"
-        app:layout_constraintTop_toBottomOf="@id/textFieldPassword"
-        app:endIconMode="password_toggle">
+        app:layout_constraintTop_toBottomOf="@id/textFieldPassword">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.jonathan.kawanuaapp.ui.custom.PasswordEditText
+            android:id="@+id/konfirmasi_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:fontFamily="@font/poppins_regular"
+            android:inputType="textPassword"
+            android:paddingStart="8dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_daftar"
