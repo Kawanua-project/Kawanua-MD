@@ -1,6 +1,8 @@
 package com.jonathan.kawanuaapp.ui.main
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,13 +11,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityMainBinding
 import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
+import com.jonathan.kawanuaapp.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,6 +37,15 @@ class MainActivity : AppCompatActivity() {
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.nav_host_fragment_activity_main, fragment) // Replace 'fragmentContainer' with your actual container ID
 //            .commit()
+
+
+        viewModel.getSession().observe(this) { user ->
+            if (!user.isLogin) {
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+        }
+
 
         val navView: BottomNavigationView = binding.navView
         setSupportActionBar(binding.toolbar)
