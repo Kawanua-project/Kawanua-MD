@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.jonathan.kawanuaapp.data.pref.UserPreference
+import com.jonathan.kawanuaapp.UserRepository
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
@@ -18,6 +19,10 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
             pref.saveThemeSetting(isDarkModeActive)
         }
     }
-
+    
+    fun logout() {
+        viewModelScope.launch {
+            repository.logout()
+        }
+    }
 }
-

@@ -16,6 +16,10 @@ import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.pref.dataStore
 import com.jonathan.kawanuaapp.databinding.FragmentProfileBinding
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
+import androidx.activity.viewModels
+import com.jonathan.kawanuaapp.ui.home.HomeViewModel
+import com.jonathan.kawanuaapp.ui.login.LoginActivity
+import com.jonathan.kawanuaapp.ui.main.MainViewModel
 
 class ProfileFragment : Fragment() {
 
@@ -45,7 +49,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
-        viewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
+      viewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 switchTheme.isChecked = true
@@ -57,6 +61,10 @@ class ProfileFragment : Fragment() {
 
         switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             viewModel.saveThemeSetting(isChecked)
+
+        binding.logout.setOnClickListener {
+            viewModel.logout()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
         }
 
         return root

@@ -8,6 +8,7 @@ import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsViewModel
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
 import com.jonathan.kawanuaapp.ui.login.LoginViewModel
+import com.jonathan.kawanuaapp.ui.main.MainViewModel
 import com.jonathan.kawanuaapp.ui.profile.ProfileViewModel
 import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
 import com.jonathan.kawanuaapp.ui.splash.SplashViewModel
@@ -30,7 +31,9 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(newsRepository) as T
             }
-
+            modelClass.isAssignableFrom(MainViewModel::class.java) -> {
+                MainViewModel(repository) as T
+            }
             modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
                 ListBeritaViewModel(newsRepository) as T
             }
@@ -45,6 +48,9 @@ class ViewModelFactory(
 
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
                 SplashViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(repository) as T
             }
 
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
