@@ -10,6 +10,7 @@ import com.jonathan.kawanuaapp.ui.login.LoginViewModel
 import com.jonathan.kawanuaapp.ui.main.MainViewModel
 import com.jonathan.kawanuaapp.ui.profile.ProfileViewModel
 import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
+import com.jonathan.kawanuaapp.ui.scan.ScanViewModel
 import com.jonathan.kawanuaapp.ui.splash.SplashViewModel
 
 
@@ -42,6 +43,9 @@ class ViewModelFactory(private val repository: UserRepository, private val newsR
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
+                ScanViewModel(repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

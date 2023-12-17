@@ -3,11 +3,9 @@ package com.jonathan.kawanuaapp.ui.scan
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.jonathan.kawanuaapp.UserRepository
 
-class ScanViewModel : ViewModel() {
+class ScanViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment"
-    }
-    val text: LiveData<String> = _text
+
 }
