@@ -62,6 +62,9 @@ class NewsAdapter(
                 viewHolderTwo.bind.tvTitle.text = news.title
                 viewHolderTwo.bind.tvDate.text = news.publishedAt
                 viewHolderTwo.bind.imgNews.loadImage(news.urlToImage)
+                viewHolderTwo.bind.root.setOnClickListener {
+                    newsItemClickListener.onNewsItemClicked(news)
+                }
 //                viewHolderTwo.bind.root.setOnClickListener { view ->
 //                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
 //                    intentDetail.putExtra("news", news)

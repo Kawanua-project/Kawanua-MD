@@ -28,7 +28,7 @@ import com.jonathan.kawanuaapp.data.model.Zoo
 class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
     private var _binding: FragmentHomeBinding? = null
-    private lateinit var mMapView: MapView
+    private var mMapView: MapView? = null
     private lateinit var news: List<ArticlesItem>
     private lateinit var adapter: NewsAdapter
     private lateinit var recyclerView: RecyclerView
@@ -75,10 +75,13 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
             recyclerView.layoutManager = horizontalLayoutManager
         }
 
-        mMapView = binding.mapView
-        mMapView.onCreate(savedInstanceState)
+//        mMapView = binding.mapView
+//        mMapView.onCreate(savedInstanceState)
 
-        mMapView.getMapAsync { googleMap ->
+        mMapView = binding.mapView
+        mMapView?.onCreate(savedInstanceState)
+
+        mMapView?.getMapAsync { googleMap ->
             googleMap.uiSettings.isZoomControlsEnabled = true
             googleMap.uiSettings.isIndoorLevelPickerEnabled = true
             googleMap.uiSettings.isCompassEnabled = true
@@ -97,29 +100,32 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        mMapView?.onDestroy()
+        mMapView = null
     }
 
     override fun onResume() {
         super.onResume()
-        mMapView.onResume()
+        mMapView?.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        mMapView.onPause()
+        mMapView?.onPause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mMapView.onDestroy()
+        mMapView?.onDestroy()
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        mMapView.onLowMemory()
+        mMapView?.onLowMemory()
     }
 
     private val requestPermissionLauncher =
@@ -145,7 +151,7 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             // Check if the GoogleMap instance is available
-            mMapView.getMapAsync { googleMap ->
+            mMapView?.getMapAsync { googleMap ->
                 googleMap.isMyLocationEnabled = true
             }
         } else {
@@ -167,8 +173,7 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
     }
 
     override fun onNewsItemClicked(newsItem: ArticlesItem) {
-        val action = HomeFragmentDirections.actionHomeToDetail()
+        val action = HomeFragmentDirections.actionHomeToDetail(newsItem)
         findNavController().navigate(action)
     }
-
 }
