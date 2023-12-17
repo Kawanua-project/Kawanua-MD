@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentListBeritaBinding
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
@@ -42,6 +45,15 @@ class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+        val appCompatActivity = requireActivity() as AppCompatActivity
+        appCompatActivity.setSupportActionBar(toolbar)
+        appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        toolbar.setNavigationOnClickListener {
+            requireActivity().onBackPressed()
+        }
+
         viewModel.getNews()
 
         recyclerView = binding.rvNews
@@ -56,7 +68,7 @@ class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
     }
 
     override fun onNewsItemClicked(newsItem: ArticlesItem) {
-        val action = HomeFragmentDirections.actionHomeToDetail()
+        val action = ListBeritaFragmentDirections.actionListToDetail(newsItem)
         findNavController().navigate(action)
     }
 

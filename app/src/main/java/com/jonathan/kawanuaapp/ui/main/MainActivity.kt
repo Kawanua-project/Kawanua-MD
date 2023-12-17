@@ -6,11 +6,14 @@ import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.data.pref.UserPreference
+import com.jonathan.kawanuaapp.data.pref.dataStore
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityMainBinding
 import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
@@ -19,6 +22,7 @@ import com.jonathan.kawanuaapp.ui.login.LoginActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var pref: UserPreference
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
@@ -27,6 +31,10 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        application?.let {
+            pref = UserPreference.getInstance(it.dataStore)
+        }
 
 //        val news = intent.getParcelableExtra<ArticlesItem>("news")
 //        val fragment = DetailNewsFragment()
@@ -49,7 +57,11 @@ class MainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navView
         setSupportActionBar(binding.toolbar)
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        supportActionBar?.setDisplayShowTitleEnabled(false) // Hide the title
+//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -71,6 +83,11 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.show()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
 
