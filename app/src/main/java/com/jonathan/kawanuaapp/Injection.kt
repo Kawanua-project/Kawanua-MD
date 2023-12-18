@@ -22,4 +22,8 @@ object Injection {
         val newsApiService = NewsApiConfig.getApiService()
         return NewsRepository.getInstance(newsApiService)
     }
+
+    fun providePreference(context: Context): UserPreference {
+        return UserPreference.getInstance(context.dataStore)
+    }
 }
