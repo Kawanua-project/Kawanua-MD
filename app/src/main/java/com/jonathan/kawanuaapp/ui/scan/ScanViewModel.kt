@@ -12,26 +12,29 @@ import java.io.File
 
 class ScanViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _responseDescription = MutableLiveData<String>()
-    val responseDescription: LiveData<String> = _responseDescription
+    private val _predictionResponse = MutableLiveData<PredictionResponse>()
+    val predictionResponse: LiveData<PredictionResponse>
+        get() = _predictionResponse
 
     val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun uploadFile(image: File) {
+
+    fun uploadImage(file: File) = userRepository.uploadImage(file)
+
+    /*fun uploadFile(image: File) {
         viewModelScope.launch {
             try {
                 val response = userRepository.uploadImage(image)
-                if(response.status?.code == 200) {
-                    _responseDescription.value = response.data?.result?.deskripsi ?: ""
-                    Log.d(TAG, "uploadFile: $_responseDescription")
-                }
-            } catch (e: Exception) {
-                Log.d(TAG, "uploadFile: ${e.message}")
+                _predictionResponse.value = response
+                Log.d(TAG, "uploadFile: ${response.status?.message}")
+            } catch(e: Exception) {
+                Log.d(TAG, "uploadFileError: ${e.message}")
             }
         }
-    }
-    companion object{
-        private const val TAG = "ScanViewModel"
+    }*/
+
+    companion object {
+        const val TAG = "ScanViewModel"
     }
 }

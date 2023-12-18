@@ -12,11 +12,12 @@ import retrofit2.http.POST
 import retrofit2.http.Part
 
 interface ApiPredictService {
+
     @Multipart
     @POST("prediction")
     suspend fun uploadImage(
         @Header("Authorization") token: String,
-        @Part file: MultipartBody.Part
+        @Part image: MultipartBody.Part,
     ): PredictionResponse
 
 

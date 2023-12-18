@@ -16,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.jonathan.kawanuaapp.R
+import com.jonathan.kawanuaapp.Result
 import com.jonathan.kawanuaapp.UserRepository
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.data.retrofit.api.ApiConfig
@@ -60,7 +61,7 @@ class ScanFragment : Fragment() {
             startGallery()
         }
 
-        binding.btnUpload.setOnClickListener{
+        binding.btnUpload.setOnClickListener {
             uploadImage()
         }
 
@@ -113,8 +114,29 @@ class ScanFragment : Fragment() {
             Log.d("Image file", "showImage: ${imageFile.path}")
             showLoading(true)
 
-            viewModel.uploadFile(imageFile)
+            viewModel.uploadImage(imageFile).observe(requireActivity()) { result ->
 
+                if (result != null) {
+                    when (result) {
+                        is Result.Loading -> {
+                            showLoading(true)
+                        }
+
+                        is Result.Success -> {
+                            result.data.status?.message?.let {
+                                showToast(it)
+                                Log.d("ScanFragment", "uploadImage: $it")
+                            }
+
+                            showLoading(false)
+                        }
+                        is Result.Error -> {
+                            showToast(result.toString())
+                            showLoading(false)
+                        }
+                    }
+                }
+            }
         } ?: showToast(getString(R.string.empty_image_warning))
     }
 
