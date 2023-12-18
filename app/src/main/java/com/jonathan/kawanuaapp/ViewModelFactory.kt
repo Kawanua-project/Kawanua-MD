@@ -11,6 +11,7 @@ import com.jonathan.kawanuaapp.ui.login.LoginViewModel
 import com.jonathan.kawanuaapp.ui.main.MainViewModel
 import com.jonathan.kawanuaapp.ui.profile.ProfileViewModel
 import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
+import com.jonathan.kawanuaapp.ui.scan.ScanViewModel
 import com.jonathan.kawanuaapp.ui.splash.SplashViewModel
 
 
@@ -51,6 +52,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
+                ScanViewModel(repository) as T
             }
 
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {

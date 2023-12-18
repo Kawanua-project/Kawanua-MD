@@ -38,6 +38,16 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+    fun getUser(): Flow<UserModel> {
+        return dataStore.data.map { preferences ->
+            UserModel(
+                preferences[EMAIL_KEY] ?: "",
+                preferences[TOKEN_KEY] ?: "",
+                preferences[IS_LOGIN_KEY] ?: false
+            )
+
+        }
+    }
     fun getThemeSetting(): Flow<Boolean> {
         return dataStore.data.map { preferences ->
             preferences[THEME_KEY] ?: false
