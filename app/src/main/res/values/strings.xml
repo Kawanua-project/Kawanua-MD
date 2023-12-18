@@ -2,6 +2,7 @@
     <string name="app_name">Kawanua App</string>
     <string name="regis">Sign Up</string>
     <string name="atau">Or</string>
+    <string name="empty_image_warning">Image can\'t be empty</string>
     <string name="silahkan_isi_form_terlebih__dahulu">Please fill the form</string>
     <string name="masukan_email">Enter Your Email</string>
     <string name="masukan_username">Enter Your Username</string>
