@@ -50,15 +50,12 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
                 SplashViewModel(repository) as T
             }
-            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
-                ProfileViewModel(repository) as T
-            }
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
                 ScanViewModel(repository) as T
             }
 
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
-                ProfileViewModel(pref) as T
+                ProfileViewModel(pref, repository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
