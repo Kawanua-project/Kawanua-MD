@@ -24,7 +24,13 @@
         android:id="@+id/navigation_scan"
         android:name="com.jonathan.kawanuaapp.ui.scan.ScanFragment"
         android:label=""
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+
+    <action
+        android:id="@+id/action_scan_to_spesies"
+        app:destination="@id/navigation_spesies" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -57,6 +63,18 @@
         <argument
             android:name="newsItem"
             app:argType="com.jonathan.kawanuaapp.ArticlesItem" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_spesies"
+        android:name="com.jonathan.kawanuaapp.ui.detailspesies.DetailSpesiesFragment"
+        android:label=""
+        tools:layout="@layout/fragment_detail_spesies">
+
+    <argument
+        android:name="data"
+        app:argType="com.jonathan.kawanuaapp.data.retrofit.response.Data" />
 
     </fragment>
 

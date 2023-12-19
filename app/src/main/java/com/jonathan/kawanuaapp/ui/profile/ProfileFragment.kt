@@ -67,11 +67,12 @@ class ProfileFragment : Fragment() {
 
         switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             viewModel.saveThemeSetting(isChecked)
+        }
 
-            binding.logout.setOnClickListener {
-                viewModel.logout()
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-            }
+        binding.logout.setOnClickListener {
+            viewModel.logout()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+
         }
     }
 

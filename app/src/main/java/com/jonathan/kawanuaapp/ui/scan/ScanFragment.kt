@@ -6,30 +6,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.Result
-import com.jonathan.kawanuaapp.UserRepository
 import com.jonathan.kawanuaapp.ViewModelFactory
-import com.jonathan.kawanuaapp.data.retrofit.api.ApiConfig
-import com.jonathan.kawanuaapp.data.retrofit.api.ApiPredictConfig
 import com.jonathan.kawanuaapp.databinding.FragmentScanBinding
 import com.jonathan.kawanuaapp.helper.getImageUri
 import com.jonathan.kawanuaapp.helper.reduceFileImage
 import com.jonathan.kawanuaapp.helper.uriToFile
-import com.jonathan.kawanuaapp.ui.register.RegisterViewModel
-import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
 
 class ScanFragment : Fragment() {
 
@@ -127,6 +116,9 @@ class ScanFragment : Fragment() {
                                 showToast(it)
                                 Log.d("ScanFragment", "uploadImage: $it")
                             }
+                            val data = result.data.data!!
+                            val action = ScanFragmentDirections.actionScanToSpesies(data)
+                            findNavController().navigate(action)
 
                             showLoading(false)
                         }
