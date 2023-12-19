@@ -16,7 +16,6 @@ interface ApiPredictService {
     @Multipart
     @POST("prediction")
     suspend fun uploadImage(
-        @Header("Authorization") token: String,
         @Part image: MultipartBody.Part,
     ): PredictionResponse
 

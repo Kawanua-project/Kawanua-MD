@@ -39,6 +39,12 @@ class ProfileFragment : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val application = requireActivity().application
         pref = UserPreference.getInstance(application.dataStore)
 
@@ -49,7 +55,7 @@ class ProfileFragment : Fragment() {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
-      viewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
+        viewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 switchTheme.isChecked = true
@@ -62,12 +68,11 @@ class ProfileFragment : Fragment() {
         switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             viewModel.saveThemeSetting(isChecked)
 
-        binding.logout.setOnClickListener {
-            viewModel.logout()
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            binding.logout.setOnClickListener {
+                viewModel.logout()
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            }
         }
-
-        return root
     }
 
     override fun onDestroyView() {

@@ -8,7 +8,7 @@ import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.UserRepository
 import kotlinx.coroutines.launch
 
-class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
+class ProfileViewModel(private val pref: UserPreference, val repository: UserRepository) : ViewModel() {
 
     fun getThemeSettings(): LiveData<Boolean> {
         return pref.getThemeSetting().asLiveData()

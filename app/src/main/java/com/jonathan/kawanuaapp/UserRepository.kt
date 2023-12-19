@@ -19,6 +19,7 @@ import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 class UserRepository private constructor(
@@ -69,6 +70,28 @@ class UserRepository private constructor(
     }*/
 
 
+//    fun uploadImage(imageFile: File) = liveData {
+//        emit(Result.Loading)
+//        val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+//        val multipartBody = MultipartBody.Part.createFormData(
+//            "image",
+//            imageFile.name,
+//            requestImageFile
+//        )
+//        try {
+//            val user = runBlocking { userPreference.getUser().first() }
+//            val successResponse = apiPredictService.uploadImage("Bearer ${user.token}", multipartBody)
+//            Log.d("repository", "uploadImage: ${successResponse.status}")
+//            emit(Result.Success(successResponse))
+//        } catch (e: HttpException) {
+//            val errorBody = e.response()?.errorBody()?.string()
+//            Log.d("repository", "uploadImage: ${e.message}")
+//            val errorResponse = Gson().fromJson(errorBody, PredictionResponse::class.java)
+//            emit(Result.Error(errorResponse?.status))
+//        }
+//
+//    }
+
     fun uploadImage(imageFile: File) = liveData {
         emit(Result.Loading)
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
@@ -78,15 +101,12 @@ class UserRepository private constructor(
             requestImageFile
         )
         try {
-            val user = runBlocking { userPreference.getUser().first() }
-            val successResponse = apiPredictService.uploadImage("Bearer ${user.token}", multipartBody)
-            Log.d("repository", "uploadImage: ${successResponse.status}")
+            val successResponse = apiPredictService.uploadImage(multipartBody)
             emit(Result.Success(successResponse))
         } catch (e: HttpException) {
-            val errorBody = e.response()?.errorBody()?.string()
-            Log.d("repository", "uploadImage: ${e.message}")
-            val errorResponse = Gson().fromJson(errorBody, PredictionResponse::class.java)
-            emit(Result.Error(errorResponse?.status))
+//            val errorBody = e.response()?.errorBody()?.string()
+//            val errorResponse = Gson().fromJson(errorBody, PredictionResponse::class.java)
+//            emit(Result.Error(errorResponse.status))
         }
 
     }
