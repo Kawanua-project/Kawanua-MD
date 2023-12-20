@@ -14,10 +14,6 @@
         <action
             android:id="@+id/action_home_to_contact"
             app:destination="@id/navigation_list" />
-        <action
-            android:id="@+id/action_home_to_detail"
-            app:destination="@id/navigation_detail" />
-
     </fragment>
 
     <fragment
@@ -49,21 +45,6 @@
         android:name="com.jonathan.kawanuaapp.ui.listnews.ListBeritaFragment"
         android:label=""
         tools:layout="@layout/fragment_list_berita" >
-    <action
-        android:id="@+id/action_list_to_detail"
-        app:destination="@id/navigation_detail" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_detail"
-        android:name="com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment"
-        android:label=""
-        tools:layout="@layout/fragment_detail_news">
-
-        <argument
-            android:name="newsItem"
-            app:argType="com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem" />
-
     </fragment>
 
     <fragment

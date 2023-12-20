@@ -13,7 +13,6 @@ import com.jonathan.kawanuaapp.helper.loadImage
 class NewsAdapter(
     private val listNews: List<ArticlesItem>,
     private val viewType: Int,
-    private val newsItemClickListener: NewsItemClickListener // Add this parameter
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -74,9 +73,5 @@ class NewsAdapter(
     class ListViewHolderHorizontal(val bind: ItemRowMainBinding) : RecyclerView.ViewHolder(bind.root)
 
     class ListViewHolderVertical(val bind: ItemRowNewsBinding) : RecyclerView.ViewHolder(bind.root)
-
-    interface NewsItemClickListener {
-        fun onNewsItemClicked(newsItem: ArticlesItem)
-    }
 
 }

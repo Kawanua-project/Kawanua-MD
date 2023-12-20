@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.apply {
-            title = ""
-        }
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
 
         application?.let {
             pref = UserPreference.getInstance(it.userDataStore)
@@ -65,11 +65,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navView: BottomNavigationView = binding.navView
-        setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false) // Hide the title
-//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -90,6 +88,7 @@ class MainActivity : AppCompatActivity() {
                 supportActionBar?.setDisplayShowTitleEnabled(false)
             } else {
                 supportActionBar?.show()
+                toolbar.title = ""
             }
         }
     }
@@ -99,4 +98,3 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 }
-
