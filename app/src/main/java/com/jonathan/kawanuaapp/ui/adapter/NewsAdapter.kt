@@ -9,6 +9,10 @@ import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import com.jonathan.kawanuaapp.databinding.ItemRowMainBinding
 import com.jonathan.kawanuaapp.databinding.ItemRowNewsBinding
 import com.jonathan.kawanuaapp.helper.loadImage
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class NewsAdapter(
     private val listNews: List<ArticlesItem>,
@@ -36,6 +40,12 @@ class NewsAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val news = listNews[position]
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        val parsedDate = try {
+            news.publishedAt?.let { dateFormat.parse(it) }
+        } catch (e: ParseException) {
+            null
+        }
         when (holder.itemViewType) {
             HORIZONTAL -> {
                 val viewHolderOne = holder as ListViewHolderHorizontal
@@ -52,7 +62,7 @@ class NewsAdapter(
             VERTICAL -> {
                 val viewHolderTwo = holder as ListViewHolderVertical
                 viewHolderTwo.bind.tvTitle.text = news.title
-                viewHolderTwo.bind.tvDate.text = news.publishedAt
+                viewHolderTwo.bind.tvDate.text = parsedDate?.let { formatDate(it) }
                 viewHolderTwo.bind.imgNews.loadImage(news.urlToImage)
 
                 holder.itemView.setOnClickListener {
@@ -62,6 +72,11 @@ class NewsAdapter(
                 }
             }
         }
+    }
+
+    private fun formatDate(date: Date): String {
+        val targetFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        return targetFormat.format(date)
     }
 
     override fun getItemCount(): Int = listNews.size
