@@ -27,5 +27,4 @@ interface ApiService {
         @Body request: UserLogin
     ): LoginResponse
 
-
 }
