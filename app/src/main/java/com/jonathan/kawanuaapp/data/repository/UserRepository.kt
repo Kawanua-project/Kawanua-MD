@@ -10,6 +10,7 @@ import com.jonathan.kawanuaapp.data.retrofit.api.ApiService
 import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import com.jonathan.kawanuaapp.data.retrofit.response.RegisterResponse
 import com.jonathan.kawanuaapp.helper.Result
+import id.zelory.compressor.Compressor
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 import okhttp3.MediaType.Companion.toMediaType
@@ -95,6 +96,7 @@ class UserRepository private constructor(
             imageFile.name,
             requestImageFile
         )
+
         try {
             val successResponse = apiPredictService.uploadImage(multipartBody)
             emit(Result.Success(successResponse))
