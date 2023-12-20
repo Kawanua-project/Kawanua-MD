@@ -52,8 +52,16 @@ class DetailSpesiesFragment : Fragment() {
         viewModel.selectedNews.observe(viewLifecycleOwner) { selectedNews ->
             binding.apply {
                 namaSpesies.text = selectedNews.endangeredPrediction
-                tvDetailSpesies.text = selectedNews.result?.deskripsi
                 ivDetailSpesies.loadImage(selectedNews.imageUrl)
+                kelas.text = selectedNews.result?.jsonMemberClass
+                family.text = selectedNews.result?.family
+                habitat.text = selectedNews.result?.habitat
+                kingdom.text = selectedNews.result?.kingdom
+                nama.text = selectedNews.result?.nama
+                phylum.text = selectedNews.result?.phylum
+                tingkatLangka.text = selectedNews.result?.tingkatKelangkaan
+                deskripsi.text = selectedNews.result?.deskripsi
+                order.text = selectedNews.result?.order
             }
         }
     }

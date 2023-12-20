@@ -60,7 +60,7 @@ dependencies {
 
     // Gmaps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-    
+
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
@@ -73,7 +73,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     // Navigation
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
 
     // Datastore
@@ -87,12 +87,12 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    
+
     // Circle Image
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     // Lottie dependency
-     implementation ("com.airbnb.android:lottie:3.4.0")
+    implementation("com.airbnb.android:lottie:3.4.0")
 
     // Login Firebase
     implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
@@ -106,5 +106,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
     implementation("androidx.exifinterface:exifinterface:1.3.6")
+
+    //Compressor
+    implementation("id.zelory:compressor:3.0.1")
+
 
 }
