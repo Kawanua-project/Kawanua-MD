@@ -3,10 +3,10 @@ package com.jonathan.kawanuaapp.helper
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jonathan.kawanuaapp.data.pref.ThemePreference
 import com.jonathan.kawanuaapp.data.repository.NewsRepository
 import com.jonathan.kawanuaapp.data.repository.UserRepository
 import com.jonathan.kawanuaapp.data.pref.UserPreference
-import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsViewModel
 import com.jonathan.kawanuaapp.ui.detailspesies.DetailSpesiesViewModel
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
@@ -21,7 +21,8 @@ import com.jonathan.kawanuaapp.ui.splash.SplashViewModel
 class ViewModelFactory(
     private val repository: UserRepository,
     private val newsRepository: NewsRepository,
-    private val pref: UserPreference
+    private val pref: UserPreference,
+    private val theme: ThemePreference
 ) :
     ViewModelProvider.NewInstanceFactory() {
 
@@ -35,25 +36,22 @@ class ViewModelFactory(
                 HomeViewModel(newsRepository) as T
             }
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
-                MainViewModel(repository, pref) as T
+                MainViewModel(repository, theme) as T
             }
             modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
                 ListBeritaViewModel(newsRepository) as T
-            }
-            modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
-                DetailNewsViewModel() as T
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
             }
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
-                SplashViewModel(repository, pref) as T
+                SplashViewModel(repository, theme) as T
             }
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
                 ScanViewModel(repository) as T
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
-                ProfileViewModel(pref, repository) as T
+                ProfileViewModel(theme, repository) as T
             }
             modelClass.isAssignableFrom(DetailSpesiesViewModel::class.java) -> {
                 DetailSpesiesViewModel() as T
@@ -74,7 +72,8 @@ class ViewModelFactory(
                     val userRepository = Injection.provideRepository(context)
                     val newsRepository = Injection.provideNewsRepository(context)
                     val userPreference = Injection.providePreference(context)
-                    INSTANCE = ViewModelFactory(userRepository, newsRepository, userPreference)
+                    val themePreference = Injection.provideTheme(context)
+                    INSTANCE = ViewModelFactory(userRepository, newsRepository, userPreference, themePreference)
                 }
             }
             return INSTANCE ?: throw IllegalStateException("ViewModelFactory should not be null")
