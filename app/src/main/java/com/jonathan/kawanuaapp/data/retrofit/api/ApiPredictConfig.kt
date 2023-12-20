@@ -29,7 +29,7 @@ object ApiPredictConfig {
             .addInterceptor(authInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://kawanua-detection-qxgwgqaooa-uc.a.run.app/")
+            .baseUrl(BuildConfig.API_URL_DETECT)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -13,6 +13,8 @@ android {
     defaultConfig {
         buildConfigField("String", "API_URL", "\"https://kawanua-qxgwgqaooa-uc.a.run.app/\"")
         buildConfigField("String", "API_URL_NEWS", "\"https://newsapi.org/v2/\"")
+        buildConfigField("String", "API_URL_DETECT", "\"https://kawanua-detection-qxgwgqaooa-uc.a.run.app/\"")
+        buildConfigField("String", "API_KEY", "\"6c3f261ad3cb4746afa01b50fd3e092a\"")
 
         applicationId = "com.jonathan.kawanuaapp"
         minSdk = 24
