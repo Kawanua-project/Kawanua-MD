@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.apply {
+            title = ""
+        }
+
         application?.let {
             pref = UserPreference.getInstance(it.dataStore)
         }

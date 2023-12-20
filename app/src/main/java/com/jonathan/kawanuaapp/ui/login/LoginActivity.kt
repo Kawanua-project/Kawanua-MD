@@ -79,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.tvDaftar.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+            finish()
         }
 
         playAnimation()
