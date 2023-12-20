@@ -55,6 +55,7 @@ class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
         viewModel.getNews()
 
+
         recyclerView = binding.rvNews
 
         viewModel.isLoading.observe(requireActivity()) {

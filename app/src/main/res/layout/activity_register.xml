@@ -20,6 +20,7 @@
 
     <TextView
         android:id="@+id/tv_silahkan_isi"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -146,6 +147,7 @@
         app:layout_goneMarginTop="16dp" />
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/tv_sudah_punya_akun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
