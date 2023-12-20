@@ -18,11 +18,10 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.jonathan.kawanuaapp.ArticlesItem
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentHomeBinding
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
-import com.jonathan.kawanuaapp.data.*
 import com.jonathan.kawanuaapp.data.model.Zoo
 
 class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
@@ -36,8 +35,6 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
         ViewModelFactory.getInstance(requireContext())
     }
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -61,6 +58,9 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
         }
 
         viewModel.getNews()
+        viewModel.isLoading.observe(requireActivity()) {
+            showLoading(it)
+        }
 
         recyclerView = binding.rvMain
 
@@ -74,9 +74,6 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
             )
             recyclerView.layoutManager = horizontalLayoutManager
         }
-
-//        mMapView = binding.mapView
-//        mMapView.onCreate(savedInstanceState)
 
         mMapView = binding.mapView
         mMapView?.onCreate(savedInstanceState)
@@ -98,6 +95,11 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
         }
 
+
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
 

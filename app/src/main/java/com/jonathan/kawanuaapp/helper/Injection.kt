@@ -1,6 +1,8 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.helper
 
 import android.content.Context
+import com.jonathan.kawanuaapp.data.repository.NewsRepository
+import com.jonathan.kawanuaapp.data.repository.UserRepository
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.pref.dataStore
 import com.jonathan.kawanuaapp.data.retrofit.api.ApiConfig

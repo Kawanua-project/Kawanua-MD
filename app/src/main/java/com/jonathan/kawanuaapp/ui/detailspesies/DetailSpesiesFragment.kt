@@ -25,7 +25,7 @@ class DetailSpesiesFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DetailSpesiesViewModel::class.java)
+        viewModel = ViewModelProvider(this)[DetailSpesiesViewModel::class.java]
         // TODO: Use the ViewModel
     }
 

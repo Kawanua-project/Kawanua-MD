@@ -10,16 +10,11 @@ import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.pref.dataStore
 import com.jonathan.kawanuaapp.databinding.FragmentProfileBinding
-import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
-import androidx.activity.viewModels
-import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
-import com.jonathan.kawanuaapp.ui.main.MainViewModel
 
 class ProfileFragment : Fragment() {
 
@@ -65,14 +60,15 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.logout.setOnClickListener {
+            viewModel.logout()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+        }
+
         switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             viewModel.saveThemeSetting(isChecked)
-
-            binding.logout.setOnClickListener {
-                viewModel.logout()
-                startActivity(Intent(requireContext(), LoginActivity::class.java))
-            }
         }
+
     }
 
     override fun onDestroyView() {

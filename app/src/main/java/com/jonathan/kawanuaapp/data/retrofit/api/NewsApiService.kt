@@ -1,7 +1,6 @@
 package com.jonathan.kawanuaapp.data.retrofit.api
 
-import com.jonathan.kawanuaapp.NewsResponse
-import retrofit2.Call
+import com.jonathan.kawanuaapp.data.retrofit.response.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

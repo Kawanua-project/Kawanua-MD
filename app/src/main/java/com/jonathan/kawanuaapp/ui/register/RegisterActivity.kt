@@ -8,9 +8,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityRegisterBinding
-import com.jonathan.kawanuaapp.ui.home.HomeFragment
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
