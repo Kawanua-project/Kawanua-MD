@@ -35,7 +35,7 @@ class ViewModelFactory(
                 HomeViewModel(newsRepository) as T
             }
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
-                MainViewModel(repository) as T
+                MainViewModel(repository, pref) as T
             }
             modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
                 ListBeritaViewModel(newsRepository) as T
