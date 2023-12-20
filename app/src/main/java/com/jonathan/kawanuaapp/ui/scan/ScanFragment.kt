@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.helper.Result
@@ -19,6 +22,8 @@ import com.jonathan.kawanuaapp.databinding.FragmentScanBinding
 import com.jonathan.kawanuaapp.helper.getImageUri
 import com.jonathan.kawanuaapp.helper.reduceFileImage
 import com.jonathan.kawanuaapp.helper.uriToFile
+import id.zelory.compressor.Compressor
+import kotlinx.coroutines.launch
 
 class ScanFragment : Fragment() {
 
@@ -53,6 +58,7 @@ class ScanFragment : Fragment() {
         binding.btnUpload.setOnClickListener {
             uploadImage()
         }
+
 
         return root
     }
@@ -100,31 +106,36 @@ class ScanFragment : Fragment() {
     private fun uploadImage() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, requireContext()).reduceFileImage()
-            Log.d("Image file", "showImage: ${imageFile.path}")
-            showLoading(true)
 
-            viewModel.uploadImage(imageFile).observe(requireActivity()) { result ->
+            lifecycleScope.launch {
+                val compressedImageFile = Compressor.compress(requireContext(), imageFile)
+                Log.d("Image file", "showImage: ${imageFile.path}")
+                showLoading(true)
 
-                if (result != null) {
-                    when (result) {
-                        is Result.Loading -> {
-                            showLoading(true)
-                        }
+                viewModel.uploadImage(compressedImageFile).observe(requireActivity()) { result ->
 
-                        is Result.Success -> {
-                            result.data.status?.message?.let {
-                                showToast(it)
-                                Log.d("ScanFragment", "uploadImage: $it")
+                    if (result != null) {
+                        when (result) {
+                            is Result.Loading -> {
+                                showLoading(true)
                             }
-                            val data = result.data.data!!
-                            val action = ScanFragmentDirections.actionScanToSpesies(data)
-                            findNavController().navigate(action)
 
-                            showLoading(false)
-                        }
-                        is Result.Error -> {
-                            showToast(result.toString())
-                            showLoading(false)
+                            is Result.Success -> {
+                                result.data.status?.message?.let {
+                                    showToast(it)
+                                    Log.d("ScanFragment", "uploadImage: $it")
+                                }
+                                val data = result.data.data!!
+                                val action = ScanFragmentDirections.actionScanToSpesies(data)
+                                findNavController().navigate(action)
+
+                                showLoading(false)
+                            }
+
+                            is Result.Error -> {
+                                showToast(result.toString())
+                                showLoading(false)
+                            }
                         }
                     }
                 }
