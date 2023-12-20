@@ -1,8 +1,10 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.helper
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.jonathan.kawanuaapp.data.repository.NewsRepository
+import com.jonathan.kawanuaapp.data.repository.UserRepository
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsViewModel
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel

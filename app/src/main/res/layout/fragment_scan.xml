@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.scan.ScanFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
         <ImageView
             android:id="@+id/iv_placeholder"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:contentDescription="@string/scan"
             android:src="@drawable/baseline_image_placeholder"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +24,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
+            android:layout_marginBottom="0dp"
             android:text="@string/gallery"
             app:icon="@drawable/baseline_image_placeholder"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
@@ -40,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="0dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/kamera"
             app:icon="@drawable/baseline_camera_alt_24"
@@ -48,12 +45,12 @@
             app:layout_constraintStart_toEndOf="@+id/btn_gallery"
             app:layout_constraintTop_toBottomOf="@+id/iv_placeholder" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="467dp" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="518dp" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -62,19 +59,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:indeterminate="true"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
             android:text="@string/unggah"
             app:icon="@drawable/baseline_upload_24"
             app:layout_constraintEnd_toEndOf="@+id/btn_camera"
             app:layout_constraintStart_toStartOf="@+id/btn_gallery"
-            app:layout_constraintTop_toBottomOf="@+id/guideline" />
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.data.repository
 
 import com.jonathan.kawanuaapp.data.retrofit.api.NewsApiService
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -14,19 +15,6 @@ class NewsRepository (
             response.articles
         }
     }
-//    fun getStories(): LiveData<PagingData<ListStoryItem>> {
-//        val user = runBlocking { userPreference.getSession().first() }
-//        val apiService = ApiConfig.getApiService(user.token)
-//
-//        return Pager(
-//            config = PagingConfig(
-//                pageSize = 5
-//            ),
-//            pagingSourceFactory = {
-//                StoryPagingSource(apiService)
-//            }
-//        ).liveData
-//    }
 
     companion object {
         @Volatile

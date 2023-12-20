@@ -1,18 +1,12 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import com.jonathan.kawanuaapp.databinding.ItemRowMainBinding
 import com.jonathan.kawanuaapp.databinding.ItemRowNewsBinding
-import com.jonathan.kawanuaapp.loadImage
-import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
-import com.jonathan.kawanuaapp.ui.main.MainActivity
+import com.jonathan.kawanuaapp.helper.loadImage
 
 class NewsAdapter(
     private val listNews: List<ArticlesItem>,

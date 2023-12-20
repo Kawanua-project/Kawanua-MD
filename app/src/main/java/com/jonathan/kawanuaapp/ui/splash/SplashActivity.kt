@@ -7,8 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.activity.viewModels
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.ViewModelFactory
-import com.jonathan.kawanuaapp.ui.login.LoginActivity
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 import com.jonathan.kawanuaapp.ui.register.RegisterActivity
 
@@ -32,7 +31,6 @@ class SplashActivity : AppCompatActivity() {
         }
 
         Handler().postDelayed({
-            // Start the main activity or any other desired activity
         }, SPLASH_DELAY)
     }
 
