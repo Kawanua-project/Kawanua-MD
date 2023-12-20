@@ -15,14 +15,13 @@ import androidx.fragment.app.viewModels
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.data.pref.UserPreference
-import com.jonathan.kawanuaapp.data.pref.dataStore
+import com.jonathan.kawanuaapp.data.pref.userDataStore
 import com.jonathan.kawanuaapp.databinding.FragmentProfileBinding
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
 
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
-    private lateinit var pref: UserPreference
     private val viewModel by viewModels<ProfileViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
@@ -43,10 +42,6 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val application = requireActivity().application
-        pref = UserPreference.getInstance(application.dataStore)
-
-        val root: View = binding.root
         val switchTheme = binding.switchTheme
 
         binding.buttonLanguage.setOnClickListener {

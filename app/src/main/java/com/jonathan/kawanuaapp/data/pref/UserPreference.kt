@@ -10,7 +10,8 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "session")
+val Context.userDataStore: DataStore<Preferences> by preferencesDataStore(name = "user_session")
+val Context.themeDataStore: DataStore<Preferences> by preferencesDataStore(name = "app_theme")
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
@@ -34,20 +35,32 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun logout() {
         dataStore.edit { preferences ->
-            preferences.clear()
+            preferences.remove(EMAIL_KEY)
+            preferences.remove(TOKEN_KEY)
+            preferences[IS_LOGIN_KEY] = false
         }
     }
 
-    fun getUser(): Flow<UserModel> {
-        return dataStore.data.map { preferences ->
-            UserModel(
-                preferences[EMAIL_KEY] ?: "",
-                preferences[TOKEN_KEY] ?: "",
-                preferences[IS_LOGIN_KEY] ?: false
-            )
+    companion object {
+        @Volatile
+        private var INSTANCE: UserPreference? = null
 
+        private val EMAIL_KEY = stringPreferencesKey("email")
+        private val TOKEN_KEY = stringPreferencesKey("token")
+        private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
+
+        fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
+            return INSTANCE ?: synchronized(this) {
+                val instance = UserPreference(dataStore)
+                INSTANCE = instance
+                instance
+            }
         }
     }
+}
+
+class ThemePreference private constructor(private val dataStore: DataStore<Preferences>) {
+
     fun getThemeSetting(): Flow<Boolean> {
         return dataStore.data.map { preferences ->
             preferences[THEME_KEY] ?: false
@@ -62,16 +75,13 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     companion object {
         @Volatile
-        private var INSTANCE: UserPreference? = null
+        private var INSTANCE: ThemePreference? = null
 
-        private val EMAIL_KEY = stringPreferencesKey("email")
-        private val TOKEN_KEY = stringPreferencesKey("token")
-        private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
         private val THEME_KEY = booleanPreferencesKey("theme_setting")
 
-        fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
+        fun getInstance(dataStore: DataStore<Preferences>): ThemePreference {
             return INSTANCE ?: synchronized(this) {
-                val instance = UserPreference(dataStore)
+                val instance = ThemePreference(dataStore)
                 INSTANCE = instance
                 instance
             }

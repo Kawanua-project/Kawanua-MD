@@ -12,7 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.data.pref.UserPreference
-import com.jonathan.kawanuaapp.data.pref.dataStore
+import com.jonathan.kawanuaapp.data.pref.userDataStore
 import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityMainBinding
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
@@ -30,8 +30,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.apply {
+            title = ""
+        }
+
         application?.let {
-            pref = UserPreference.getInstance(it.dataStore)
+            pref = UserPreference.getInstance(it.userDataStore)
         }
 
 //        val news = intent.getParcelableExtra<ArticlesItem>("news")
@@ -59,7 +63,6 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
-
 
         val navView: BottomNavigationView = binding.navView
         setSupportActionBar(binding.toolbar)
