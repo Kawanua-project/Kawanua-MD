@@ -99,7 +99,9 @@ class HomeFragment : Fragment(), NewsAdapter.NewsItemClickListener {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        _binding?.let { binding ->
+            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
     }
 
 
