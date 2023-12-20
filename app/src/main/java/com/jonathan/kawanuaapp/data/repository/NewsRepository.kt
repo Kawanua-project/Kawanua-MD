@@ -1,5 +1,6 @@
 package com.jonathan.kawanuaapp.data.repository
 
+import com.jonathan.kawanuaapp.BuildConfig
 import com.jonathan.kawanuaapp.data.retrofit.api.NewsApiService
 import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ class NewsRepository (
 
     suspend fun getNews(): List<ArticlesItem> {
         return withContext(Dispatchers.IO) {
-            val response = apiService.searchNews("wildlife", "6c3f261ad3cb4746afa01b50fd3e092a")
+            val response = apiService.searchNews("wildlife", BuildConfig.API_KEY)
             response.articles
         }
     }
