@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.ViewModelFactory
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
@@ -21,6 +22,14 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        viewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
         viewModel.getSession().observe(this@SplashActivity) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(this, RegisterActivity::class.java))
@@ -32,7 +41,6 @@ class SplashActivity : AppCompatActivity() {
         }
 
         Handler().postDelayed({
-            // Start the main activity or any other desired activity
         }, SPLASH_DELAY)
     }
 

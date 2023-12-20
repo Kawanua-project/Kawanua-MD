@@ -45,7 +45,7 @@ class ViewModelFactory(
                 LoginViewModel(repository) as T
             }
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
-                SplashViewModel(repository) as T
+                SplashViewModel(repository, pref) as T
             }
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
                 ScanViewModel(repository) as T

@@ -1,18 +1,12 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
-import android.app.Activity
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.databinding.ItemRowMainBinding
 import com.jonathan.kawanuaapp.databinding.ItemRowNewsBinding
 import com.jonathan.kawanuaapp.loadImage
-import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
-import com.jonathan.kawanuaapp.ui.main.MainActivity
 
 class NewsAdapter(
     private val listNews: List<ArticlesItem>,
@@ -49,13 +43,6 @@ class NewsAdapter(
                 viewHolderOne.bind.root.setOnClickListener {
                     newsItemClickListener.onNewsItemClicked(news)
                 }
-//                viewHolderOne.bind.root.setOnClickListener { view ->
-//                    val intentDetail = Intent(view.context, MainActivity::class.java)
-//                    intentDetail.putExtra("news", news)
-//
-//                    view.context.startActivity(intentDetail)
-//                }
-
             }
             VERTICAL -> {
                 val viewHolderTwo = holder as ListViewHolderVertical
@@ -65,17 +52,6 @@ class NewsAdapter(
                 viewHolderTwo.bind.root.setOnClickListener {
                     newsItemClickListener.onNewsItemClicked(news)
                 }
-//                viewHolderTwo.bind.root.setOnClickListener { view ->
-//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
-//                    intentDetail.putExtra("news", news)
-//
-//                    view.context.startActivity(intentDetail)
-//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
-//                    val bundle = Bundle()
-//                    bundle.putParcelable("news", news)
-//                    intentDetail.putExtras(bundle)
-//                    view.context.startActivity(intentDetail)
-//                }
             }
         }
     }
