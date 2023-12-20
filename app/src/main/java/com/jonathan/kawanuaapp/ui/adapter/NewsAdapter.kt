@@ -1,5 +1,7 @@
 package com.jonathan.kawanuaapp.ui.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -40,9 +42,13 @@ class NewsAdapter(
                 val viewHolderOne = holder as ListViewHolderHorizontal
                 viewHolderOne.bind.tvTitle.text = news.title
                 viewHolderOne.bind.imgNews.loadImage(news.urlToImage)
-                viewHolderOne.bind.root.setOnClickListener {
-                    newsItemClickListener.onNewsItemClicked(news)
+
+                holder.itemView.setOnClickListener {
+                    val newsUrl = news.url
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(newsUrl))
+                    holder.itemView.context.startActivity(intent)
                 }
+
 //                viewHolderOne.bind.root.setOnClickListener { view ->
 //                    val intentDetail = Intent(view.context, MainActivity::class.java)
 //                    intentDetail.putExtra("news", news)
@@ -56,9 +62,13 @@ class NewsAdapter(
                 viewHolderTwo.bind.tvTitle.text = news.title
                 viewHolderTwo.bind.tvDate.text = news.publishedAt
                 viewHolderTwo.bind.imgNews.loadImage(news.urlToImage)
-                viewHolderTwo.bind.root.setOnClickListener {
-                    newsItemClickListener.onNewsItemClicked(news)
+
+                holder.itemView.setOnClickListener {
+                    val newsUrl = news.url
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(newsUrl))
+                    holder.itemView.context.startActivity(intent)
                 }
+
 //                viewHolderTwo.bind.root.setOnClickListener { view ->
 //                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
 //                    intentDetail.putExtra("news", news)
