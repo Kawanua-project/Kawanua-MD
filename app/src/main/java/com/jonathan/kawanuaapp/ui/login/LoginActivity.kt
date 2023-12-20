@@ -66,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
                 val token = it.token
                 token?.let { it1 -> UserModel(email, it1) }
                     ?.let { it2 -> viewModel.saveSession(it2) }
+                finish()
             }
         }
 

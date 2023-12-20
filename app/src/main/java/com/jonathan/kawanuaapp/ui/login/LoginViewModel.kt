@@ -32,7 +32,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
                 Log.d(TAG, loginResponse.message.toString())
                 _isLoading.value = false
             } catch (e: HttpException) {
-                _response.value = "Gagal mendaftar"
+                _response.value = "Gagal masuk"
                 Log.d(TAG, e.message.toString())
                 _isLoading.value = false
             }
