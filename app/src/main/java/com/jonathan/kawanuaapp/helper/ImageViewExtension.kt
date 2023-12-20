@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.helper
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

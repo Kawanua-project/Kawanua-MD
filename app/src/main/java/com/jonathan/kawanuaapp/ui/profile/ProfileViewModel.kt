@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.jonathan.kawanuaapp.data.pref.UserPreference
-import com.jonathan.kawanuaapp.UserRepository
+import com.jonathan.kawanuaapp.data.repository.UserRepository
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val pref: UserPreference, val repository: UserRepository) : ViewModel() {

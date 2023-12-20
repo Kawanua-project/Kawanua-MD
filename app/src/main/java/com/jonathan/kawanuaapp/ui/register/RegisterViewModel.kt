@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jonathan.kawanuaapp.UserRepository
+import com.jonathan.kawanuaapp.data.repository.UserRepository
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 

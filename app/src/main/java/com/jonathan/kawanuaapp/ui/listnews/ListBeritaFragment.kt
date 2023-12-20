@@ -11,12 +11,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentListBeritaBinding
 import com.jonathan.kawanuaapp.ui.adapter.NewsAdapter
-import com.jonathan.kawanuaapp.ui.home.HomeFragmentDirections
 
 class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
@@ -58,6 +57,10 @@ class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
 
         recyclerView = binding.rvNews
 
+        viewModel.isLoading.observe(requireActivity()) {
+            showLoading(it)
+        }
+
         viewModel.news.observe(viewLifecycleOwner) { news ->
             this.news = news
             val viewType = NewsAdapter.VERTICAL
@@ -75,5 +78,9 @@ class ListBeritaFragment : Fragment(), NewsAdapter.NewsItemClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

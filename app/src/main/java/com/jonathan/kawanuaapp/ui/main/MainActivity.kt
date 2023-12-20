@@ -5,18 +5,15 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.jonathan.kawanuaapp.ArticlesItem
 import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.pref.dataStore
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityMainBinding
-import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsFragment
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {

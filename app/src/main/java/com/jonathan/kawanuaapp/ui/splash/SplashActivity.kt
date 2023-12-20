@@ -8,8 +8,7 @@ import android.os.Handler
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatDelegate
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.ViewModelFactory
-import com.jonathan.kawanuaapp.ui.login.LoginActivity
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.ui.main.MainActivity
 import com.jonathan.kawanuaapp.ui.register.RegisterActivity
 

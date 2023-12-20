@@ -1,4 +1,4 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.data.retrofit.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -6,13 +6,13 @@ import kotlinx.parcelize.Parcelize
 
 data class NewsResponse(
 
-	@field:SerializedName("totalResults")
+    @field:SerializedName("totalResults")
 	val totalResults: Int? = null,
 
-	@field:SerializedName("articles")
+    @field:SerializedName("articles")
 	val articles: List<ArticlesItem>,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: String? = null
 )
 

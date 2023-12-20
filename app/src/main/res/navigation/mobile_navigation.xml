@@ -62,7 +62,7 @@
 
         <argument
             android:name="newsItem"
-            app:argType="com.jonathan.kawanuaapp.ArticlesItem" />
+            app:argType="com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem" />
 
     </fragment>
 

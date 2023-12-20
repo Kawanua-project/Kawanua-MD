@@ -10,7 +10,7 @@ import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.data.pref.dataStore
 import com.jonathan.kawanuaapp.databinding.FragmentProfileBinding
@@ -62,12 +62,11 @@ class ProfileFragment : Fragment() {
 
         switchTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
             viewModel.saveThemeSetting(isChecked)
-        }
 
-        binding.logout.setOnClickListener {
-            viewModel.logout()
-            startActivity(Intent(requireContext(), LoginActivity::class.java))
-
+            binding.logout.setOnClickListener {
+                viewModel.logout()
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+            }
         }
     }
 

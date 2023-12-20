@@ -11,10 +11,9 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.Result
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.Result
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentScanBinding
 import com.jonathan.kawanuaapp.helper.getImageUri
 import com.jonathan.kawanuaapp.helper.reduceFileImage
@@ -116,9 +115,6 @@ class ScanFragment : Fragment() {
                                 showToast(it)
                                 Log.d("ScanFragment", "uploadImage: $it")
                             }
-                            val data = result.data.data!!
-                            val action = ScanFragmentDirections.actionScanToSpesies(data)
-                            findNavController().navigate(action)
 
                             showLoading(false)
                         }

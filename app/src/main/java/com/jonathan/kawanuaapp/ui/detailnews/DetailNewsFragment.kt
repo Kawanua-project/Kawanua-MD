@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
-import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 import com.jonathan.kawanuaapp.R
-import com.jonathan.kawanuaapp.ViewModelFactory
+import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.FragmentDetailNewsBinding
-import com.jonathan.kawanuaapp.loadImage
+import com.jonathan.kawanuaapp.helper.loadImage
 
 class DetailNewsFragment : Fragment() {
 
@@ -33,7 +33,6 @@ class DetailNewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val news = arguments?.getParcelable<ArticlesItem>("news")
         val news = arguments?.getParcelable<ArticlesItem>("newsItem")
 
         if (news != null) {
@@ -50,7 +49,6 @@ class DetailNewsFragment : Fragment() {
         }
 
         viewModel.selectedNews.observe(viewLifecycleOwner) { selectedNews ->
-            // Use the selectedNews to update UI or perform actions
             binding.apply {
                 judul.text = selectedNews.title
                 tvDetailSpesies.text = selectedNews.content

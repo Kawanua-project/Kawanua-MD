@@ -1,20 +1,17 @@
-package com.jonathan.kawanuaapp
+package com.jonathan.kawanuaapp.data.repository
 
 import androidx.lifecycle.liveData
 import com.jonathan.kawanuaapp.data.model.UserLogin
 import com.jonathan.kawanuaapp.data.model.UserRegister
 import com.jonathan.kawanuaapp.data.pref.UserModel
 import com.jonathan.kawanuaapp.data.pref.UserPreference
-import com.jonathan.kawanuaapp.data.retrofit.api.ApiPredictConfig
 import com.jonathan.kawanuaapp.data.retrofit.api.ApiPredictService
 import com.jonathan.kawanuaapp.data.retrofit.api.ApiService
 import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import com.jonathan.kawanuaapp.data.retrofit.response.RegisterResponse
-import com.jonathan.kawanuaapp.Result
+import com.jonathan.kawanuaapp.helper.Result
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import retrofit2.HttpException
-import kotlinx.coroutines.runBlocking
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -92,9 +89,6 @@ class UserRepository private constructor(
 
     fun uploadImage(imageFile: File) = liveData {
         emit(Result.Loading)
-        val user = runBlocking { userPreference.getSession().first() }
-        val apiPredictService = ApiPredictConfig.getApiService(user.token)
-
         val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
         val multipartBody = MultipartBody.Part.createFormData(
             "image",

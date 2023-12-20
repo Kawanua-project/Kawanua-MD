@@ -3,7 +3,7 @@ package com.jonathan.kawanuaapp.ui.detailnews
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.jonathan.kawanuaapp.ArticlesItem
+import com.jonathan.kawanuaapp.data.retrofit.response.ArticlesItem
 
 class DetailNewsViewModel : ViewModel() {
     private val _selectedNews = MutableLiveData<ArticlesItem>()
