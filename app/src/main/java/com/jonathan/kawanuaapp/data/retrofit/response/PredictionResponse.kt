@@ -1,6 +1,9 @@
 package com.jonathan.kawanuaapp.data.retrofit.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
 data class PredictionResponse(
 
@@ -11,10 +14,11 @@ data class PredictionResponse(
 	val status: Status? = null
 )
 
+@Parcelize
 data class Data(
 
 	@field:SerializedName("result")
-	val result: Result? = null,
+	val result: @RawValue Result? = null,
 
 	@field:SerializedName("endangered_prediction")
 	val endangeredPrediction: String? = null,
@@ -23,9 +27,10 @@ data class Data(
 	val imageUrl: String? = null,
 
 	@field:SerializedName("confidence")
-	val confidence: Any? = null
-)
+	val confidence: @RawValue Any? = null
+) : Parcelable
 
+@Parcelize
 data class Result(
 
 	@field:SerializedName("habitat")
@@ -57,7 +62,7 @@ data class Result(
 
 	@field:SerializedName("order")
 	val order: String? = null
-)
+) : Parcelable
 
 data class Status(
 

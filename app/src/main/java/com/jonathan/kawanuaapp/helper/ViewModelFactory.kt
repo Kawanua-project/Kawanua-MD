@@ -7,6 +7,7 @@ import com.jonathan.kawanuaapp.data.repository.NewsRepository
 import com.jonathan.kawanuaapp.data.repository.UserRepository
 import com.jonathan.kawanuaapp.data.pref.UserPreference
 import com.jonathan.kawanuaapp.ui.detailnews.DetailNewsViewModel
+import com.jonathan.kawanuaapp.ui.detailspesies.DetailSpesiesViewModel
 import com.jonathan.kawanuaapp.ui.home.HomeViewModel
 import com.jonathan.kawanuaapp.ui.listnews.ListBeritaViewModel
 import com.jonathan.kawanuaapp.ui.login.LoginViewModel
@@ -30,7 +31,6 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(repository) as T
             }
-
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(newsRepository) as T
             }
@@ -40,24 +40,23 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(ListBeritaViewModel::class.java) -> {
                 ListBeritaViewModel(newsRepository) as T
             }
-
             modelClass.isAssignableFrom(DetailNewsViewModel::class.java) -> {
                 DetailNewsViewModel() as T
             }
-
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(repository) as T
             }
-
             modelClass.isAssignableFrom(SplashViewModel::class.java) -> {
-                SplashViewModel(repository) as T
+                SplashViewModel(repository, pref) as T
             }
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
                 ScanViewModel(repository) as T
             }
-
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(pref, repository) as T
+            }
+            modelClass.isAssignableFrom(DetailSpesiesViewModel::class.java) -> {
+                DetailSpesiesViewModel() as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)

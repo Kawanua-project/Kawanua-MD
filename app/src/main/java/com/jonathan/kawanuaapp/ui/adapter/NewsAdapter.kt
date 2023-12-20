@@ -43,13 +43,6 @@ class NewsAdapter(
                 viewHolderOne.bind.root.setOnClickListener {
                     newsItemClickListener.onNewsItemClicked(news)
                 }
-//                viewHolderOne.bind.root.setOnClickListener { view ->
-//                    val intentDetail = Intent(view.context, MainActivity::class.java)
-//                    intentDetail.putExtra("news", news)
-//
-//                    view.context.startActivity(intentDetail)
-//                }
-
             }
             VERTICAL -> {
                 val viewHolderTwo = holder as ListViewHolderVertical
@@ -59,17 +52,6 @@ class NewsAdapter(
                 viewHolderTwo.bind.root.setOnClickListener {
                     newsItemClickListener.onNewsItemClicked(news)
                 }
-//                viewHolderTwo.bind.root.setOnClickListener { view ->
-//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
-//                    intentDetail.putExtra("news", news)
-//
-//                    view.context.startActivity(intentDetail)
-//                    val intentDetail = Intent(view.context, DetailNewsFragment::class.java)
-//                    val bundle = Bundle()
-//                    bundle.putParcelable("news", news)
-//                    intentDetail.putExtras(bundle)
-//                    view.context.startActivity(intentDetail)
-//                }
             }
         }
     }
