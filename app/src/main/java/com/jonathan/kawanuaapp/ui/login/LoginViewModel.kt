@@ -9,12 +9,13 @@ import com.jonathan.kawanuaapp.data.repository.UserRepository
 import com.jonathan.kawanuaapp.data.pref.UserModel
 import com.jonathan.kawanuaapp.data.retrofit.response.LoginResponse
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.HttpException
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _response = MutableLiveData<String>()
-    val response: LiveData<String> = _response
+    private val _response = MutableLiveData<String?>()
+    val response: MutableLiveData<String?> = _response
 
     private val _token = MutableLiveData<LoginResponse>()
     val token: LiveData<LoginResponse> = _token
@@ -32,8 +33,14 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
                 Log.d(TAG, loginResponse.message.toString())
                 _isLoading.value = false
             } catch (e: HttpException) {
-                _response.value = "Gagal masuk"
-                Log.d(TAG, e.message.toString())
+                val responseBody = e.response()?.errorBody()?.string()
+                val errorJson = responseBody?.let { JSONObject(it) }
+                val errorMessage =
+                    errorJson?.getString("msg")
+                _response.value = errorMessage
+                if (errorMessage != null) {
+                    Log.d(TAG, errorMessage)
+                }
                 _isLoading.value = false
             }
         }

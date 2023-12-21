@@ -55,18 +55,21 @@ class LoginActivity : AppCompatActivity() {
 
 
         viewModel.token.observe(this) {
-            if(it.token != null) {
+            if (it.token != null) {
                 showToast("Login berhasil")
-            }
-            runBlocking {
-                delay(1000)
-            }
-            if(it != null) {
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 val token = it.token
-                token?.let { it1 -> UserModel(email, it1) }
-                    ?.let { it2 -> viewModel.saveSession(it2) }
+                UserModel(email, token)
+                    .let { it2 -> viewModel.saveSession(it2) }
                 finish()
+            } else if (it.message != null) {
+                showToast(it.message.toString())
+            }
+        }
+
+        viewModel.response.observe(this) {
+            if (it != null) {
+                showToast(it)
             }
         }
 
@@ -85,7 +88,6 @@ class LoginActivity : AppCompatActivity() {
 
         playAnimation()
     }
-
 
 
     companion object {
