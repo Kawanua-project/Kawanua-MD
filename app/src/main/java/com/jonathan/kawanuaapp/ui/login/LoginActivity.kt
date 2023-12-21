@@ -57,7 +57,9 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.response.observe(this) {
             if (it != null) {
-                showToast(it)
+                if (it.isNotEmpty()) {
+                    showToast(it)
+                }
             }
         }
 
