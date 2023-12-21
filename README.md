@@ -27,16 +27,16 @@
    - Supports both Indonesian and English languages, making the application accessible to a broader audience.
 
 ## Dependencies
-- Lifecyle & LiveData
-- Navigation Component
-- Kotlinx-coroutines
-- Retrofit 2
-- OK Http 3
-- Lottie Files
-- Google Play services Maps
-- Compressor
-- Data Store
-- hdodenhof (Circle Image View)
+- [Lifecyle & LiveData]("https://developer.android.com/jetpack/androidx/releases/lifecycle")
+- [Navigation Component]("https://developer.android.com/jetpack/androidx/releases/navigation")
+- [Kotlinx-coroutines]("https://developer.android.com/kotlin/coroutines")
+- [Retrofit 2]("https://square.github.io/retrofit/")
+- [Ok Http 3]("https://square.github.io/okhttp/")
+- (Lottie Files]("https://lottiefiles.com/")
+- [Google Play services Maps]("https://developers.google.com/maps/documentation/android-sdk/get-api-key")
+- [Compressor]("https://github.com/zetbaitsu/Compressor")
+- [Data Store]("https://developer.android.com/topic/libraries/architecture/datastore")
+- [hdodenhof (Circle Image View)]("https://github.com/hdodenhof/CircleImageView")
 
 ## Getting Started
 ### Prerequisites
