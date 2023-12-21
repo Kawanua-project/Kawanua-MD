@@ -110,5 +110,4 @@ dependencies {
     //Compressor
     implementation("id.zelory:compressor:3.0.1")
 
-
 }

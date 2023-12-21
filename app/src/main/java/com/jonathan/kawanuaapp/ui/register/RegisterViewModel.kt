@@ -6,13 +6,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jonathan.kawanuaapp.data.repository.UserRepository
+import com.jonathan.kawanuaapp.ui.login.LoginViewModel
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.HttpException
 
 class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _response = MutableLiveData<String>()
-    val response: LiveData<String> = _response
+    private val _response = MutableLiveData<String?>()
+    val response: MutableLiveData<String?> = _response
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -26,8 +28,14 @@ class RegisterViewModel(private val userRepository: UserRepository) : ViewModel(
                 Log.d(TAG, registerResponse.msg.toString())
                 _isLoading.value = false
             } catch (e: HttpException) {
-                _response.value = "Gagal mendaftar"
-                Log.d(TAG, e.message.toString())
+                val responseBody = e.response()?.errorBody()?.string()
+                val errorJson = responseBody?.let { JSONObject(it) }
+                val errorMessage =
+                    errorJson?.getString("msg")
+                _response.value = errorMessage
+                if (errorMessage != null) {
+                    Log.d(LoginViewModel.TAG, errorMessage)
+                }
                 _isLoading.value = false
             }
         }
