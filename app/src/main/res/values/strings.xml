@@ -168,5 +168,6 @@
         <item>082158794140</item>
         <item>08114555989</item>
     </string-array>
+    <string name="maps" translatable="false">AIzaSyD5yQYmPklVPuH5hwx20SeCl4zUPVG8VmI</string>
 
 </resources>
