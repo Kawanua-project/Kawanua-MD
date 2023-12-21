@@ -8,6 +8,10 @@
   
 2. **Figma**
 
+3. **API**
+   - Newsapi.org
+   - Google Maps Api
+
 ## Features
 - Login and Register
 - Show list of article about wildlife
