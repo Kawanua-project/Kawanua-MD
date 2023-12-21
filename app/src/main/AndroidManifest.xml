@@ -9,9 +9,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <uses-permission
         android:name="android.permission.CHANGE_CONFIGURATION"
         tools:ignore="ProtectedPermissions" />
+
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
@@ -28,6 +30,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KawanuaApp"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
@@ -39,13 +42,15 @@
         <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true"
-            android:label="@string/title_activity_main">
+            android:label="@string/kawanua">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
