@@ -2,27 +2,14 @@ package com.jonathan.kawanuaapp.ui.login
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.auth
 import com.jonathan.kawanuaapp.ui.main.MainActivity
-import com.jonathan.kawanuaapp.R
 import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.data.pref.UserModel
 import com.jonathan.kawanuaapp.databinding.ActivityLoginBinding
@@ -56,14 +43,15 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.token.observe(this) {
             if (it.token != null) {
+                runBlocking {
+                    delay(1000)
+                }
                 showToast("Login berhasil")
                 startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                 val token = it.token
                 UserModel(email, token)
                     .let { it2 -> viewModel.saveSession(it2) }
                 finish()
-            } else if (it.message != null) {
-                showToast(it.message.toString())
             }
         }
 

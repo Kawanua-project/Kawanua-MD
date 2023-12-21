@@ -28,7 +28,6 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
             try {
                 _isLoading.value = true
                 val loginResponse = userRepository.login(email, password)
-                _response.value = loginResponse.message.toString()
                 _token.postValue(loginResponse)
                 Log.d(TAG, loginResponse.message.toString())
                 _isLoading.value = false
