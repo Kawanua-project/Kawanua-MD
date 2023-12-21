@@ -27,16 +27,17 @@
    - Supports both Indonesian and English languages, making the application accessible to a broader audience.
 
 ## Dependencies
-- [Lifecyle & LiveData]("https://developer.android.com/jetpack/androidx/releases/lifecycle")
-- [Navigation Component]("https://developer.android.com/jetpack/androidx/releases/navigation")
-- [Kotlinx-coroutines]("https://developer.android.com/kotlin/coroutines")
-- [Retrofit 2]("https://square.github.io/retrofit/")
-- [Ok Http 3]("https://square.github.io/okhttp/")
-- (Lottie Files]("https://lottiefiles.com/")
-- [Google Play services Maps]("https://developers.google.com/maps/documentation/android-sdk/get-api-key")
-- [Compressor]("https://github.com/zetbaitsu/Compressor")
-- [Data Store]("https://developer.android.com/topic/libraries/architecture/datastore")
-- [hdodenhof (Circle Image View)]("https://github.com/hdodenhof/CircleImageView")
+## Dependencies
+- [Lifecycle & LiveData](https://developer.android.com/jetpack/androidx/releases/lifecycle)
+- [Navigation Component](https://developer.android.com/jetpack/androidx/releases/navigation)
+- [Kotlinx-coroutines](https://developer.android.com/kotlin/coroutines)
+- [Retrofit 2](https://square.github.io/retrofit/)
+- [OkHttp 3](https://square.github.io/okhttp/)
+- [Lottie Files](https://lottiefiles.com/)
+- [Google Play services Maps](https://developers.google.com/maps/documentation/android-sdk/get-api-key)
+- [Compressor](https://github.com/zetbaitsu/Compressor)
+- [Data Store](https://developer.android.com/topic/libraries/architecture/datastore)
+
 
 ## Getting Started
 ### Prerequisites
