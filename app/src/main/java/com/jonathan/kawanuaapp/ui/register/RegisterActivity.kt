@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import com.jonathan.kawanuaapp.helper.ViewModelFactory
 import com.jonathan.kawanuaapp.databinding.ActivityRegisterBinding
 import com.jonathan.kawanuaapp.ui.login.LoginActivity
@@ -40,13 +41,24 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         viewModel.response.observe(this) {
-            showToast(it.toString())
-            runBlocking {
-                delay(1000)
+            val alertDialogBuilder = AlertDialog.Builder(this@RegisterActivity)
+            if (it == "Register Berhasil") {
+                alertDialogBuilder.setTitle("Register Berhasil")
+                alertDialogBuilder.setMessage("Anda berhasil terdaftar.")
+                alertDialogBuilder.setPositiveButton("Lanjut") { dialog, _ ->
+                    dialog.dismiss()
+                    startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+                }
+            } else {
+                alertDialogBuilder.setTitle("Register Gagal")
+                alertDialogBuilder.setMessage("Pesan: $it")
+                alertDialogBuilder.setPositiveButton("Tutup") { dialog, _ ->
+                    dialog.dismiss()
+                }
             }
-            if(it == "Register berhasil") {
-                startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
-            }
+
+            val alertDialog: AlertDialog = alertDialogBuilder.create()
+            alertDialog.show()
         }
     }
 
