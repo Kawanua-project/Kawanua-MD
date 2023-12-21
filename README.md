@@ -1,0 +1,18 @@
+# Kawanua Mobile Development Documentation
+
+## Tools and Libraries
+1. **Android Studio:**
+   - Glide
+   - Lottie
+   - Retrofit
+  
+2. **Figma**
+
+## Features
+- Login and Register
+- Show list of article about wildlife
+- Show nearby wildlife conservation
+- Endangered species detection
+- Show list of government conservation center
+- Dark mode
+- Support Indonesia and English localization
